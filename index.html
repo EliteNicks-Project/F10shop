@@ -218,48 +218,21 @@
             padding: 2rem 2rem 8rem 2rem;
         }
 
-        /* Ajuste UX: Estilos para que el título de sección actúe como un enlace interactivo limpio */
-        .section-link {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            margin-bottom: 2rem;
-            transition: var(--transition);
-        }
-
-        .section-link:hover .section-title {
-            color: var(--text-muted);
-        }
-
-        .section-link:hover::after {
-            background: rgba(255, 255, 255, 0.2);
-        }
-
         .section-title {
             font-size: 1.5rem;
             text-transform: uppercase;
             letter-spacing: -0.02em;
+            margin-bottom: 2rem;
             display: flex;
             align-items: center;
-            gap: 0.5rem;
-            white-space: nowrap;
-            transition: var(--transition);
+            gap: 1rem;
         }
 
-        /* Icono sutil indicando enlace externo en el título */
-        .section-title svg {
-            width: 16px;
-            height: 16px;
-            fill: currentColor;
-            opacity: 0.6;
-        }
-
-        .section-link::after {
+        .section-title::after {
             content: '';
             flex: 1;
             height: 1px;
             background: rgba(255, 255, 255, 0.1);
-            transition: var(--transition);
         }
 
         .products-grid {
@@ -325,6 +298,16 @@
             font-weight: 500;
             letter-spacing: -0.01em;
             color: var(--text-main);
+        }
+
+        /* Estilo UX: Añadimos un pequeño efecto visual al pasar por encima del enlace del producto */
+        .product-title-link {
+            transition: var(--transition);
+        }
+        
+        .product-title-link:hover {
+            color: var(--text-muted);
+            text-decoration: underline;
         }
 
         .product-price {
@@ -429,14 +412,6 @@
                 padding: 2rem 1.5rem 4rem 1.5rem;
             }
 
-            .section-link {
-                margin-bottom: 1.5rem;
-            }
-
-            .section-title {
-                font-size: 1.25rem;
-            }
-
             .products-grid {
                 grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
                 gap: 1.5rem 1rem;
@@ -491,24 +466,21 @@
     </section>
 
     <main class="catalog-container">
-        <a href="https://scarfacestock.com/" target="_blank" class="section-link">
-            <h2 class="section-title">
-                Catálogo Productos 24h
-                <svg viewBox="0 0 24 24">
-                    <path d="M19 19H5V5h7V3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2v-7h-2v7zM14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7z"/>
-                </svg>
-            </h2>
-        </a>
+        <h2 class="section-title">Prendas Disponibles</h2>
         
         <div class="products-grid">
 
+            <!-- PRIMERA TARJETA MODIFICADA (HOMBRE CON BARBA) -->
             <div class="product-card">
                 <div class="product-image-wrapper">
                     <img src="https://images.unsplash.com/photo-1521572267360-ee0c2909d518?auto=format&fit=crop&q=80&w=600" alt="Camiseta Urbana F10" class="product-image" loading="lazy">
                 </div>
                 <div class="product-info">
                     <div class="product-meta">
-                        <h3 class="product-title">Camiseta "Sample Brand X" (Yupoo Batch)</h3>
+                        <!-- Aquí cambiamos el nombre y añadimos el enlace directo a scarfacestock.com -->
+                        <h3 class="product-title">
+                            <a href="https://scarfacestock.com/" target="_blank" class="product-title-link">Catálogo Productos 24h</a>
+                        </h3>
                         <span class="product-price">29,99€</span>
                     </div>
                     <a href="https://www.instagram.com/f10wears?igsh=bDhqejF2amNrajJo" target="_blank" class="btn-order">
@@ -520,6 +492,7 @@
                 </div>
             </div>
 
+            <!-- SEGUNDA TARJETA (ROPA DOBLADA) -->
             <div class="product-card">
                 <div class="product-image-wrapper">
                     <img src="https://images.unsplash.com/photo-1562157873-818bc0726f68?auto=format&fit=crop&q=80&w=600" alt="Camiseta Streetwear" class="product-image" loading="lazy">
@@ -538,6 +511,7 @@
                 </div>
             </div>
 
+            <!-- TERCERA TARJETA (CHICA EN PARED ROSA) -->
             <div class="product-card">
                 <div class="product-image-wrapper">
                     <img src="https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?auto=format&fit=crop&q=80&w=600" alt="Camiseta Vintage" class="product-image" loading="lazy">
@@ -563,7 +537,7 @@
         <div class="footer-brand">F10WEARS</div>
         <p class="footer-text">Catálogo privado streetwear de importación. Consulta disponibilidad y gestiona tus pedidos enviando un DM a nuestro perfil oficial de Instagram.</p>
         <div class="footer-copy">&copy; 2026 F10Wears. Todos los derechos reservados.</div>
-    </footer
+    </footer>
 
 </body>
 </html>
