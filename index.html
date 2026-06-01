@@ -1,1 +1,425 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VORTEX STREETWEAR | Catálogo Exclusivo</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* ==========================================================================
+           1. VARIABLES Y CONFIGURACIÓN BASE
+           ========================================================================== */
+        :root {
+            --bg-color: #0b0b0b;
+            --surface-color: #161616;
+            --accent-color: #ffffff;
+            --accent-hover: #e0e0e0;
+            --text-main: #ffffff;
+            --text-muted: #888888;
+            --whatsapp-green: #25D366;
+            --font-main: 'Space Grotesk', sans-serif;
+            --transition: all 0.3s ease;
+        }
 
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            font-family: var(--font-main);
+            line-height: 1.5;
+            overflow-x: hidden;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* ==========================================================================
+           2. NAVBAR (CABECERA)
+           ========================================================================== */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: rgba(11, 11, 11, 0.8);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            z-index: 1000;
+            transition: var(--transition);
+        }
+
+        .navbar-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1.25rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .brand-logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            letter-spacing: -0.05em;
+            text-transform: uppercase;
+        }
+
+        .nav-status {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.85rem;
+            background: rgba(255, 255, 255, 0.05);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .status-dot {
+            width: 8px;
+            height: 8px;
+            background-color: var(--whatsapp-green);
+            border-radius: 50%;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); }
+            70% { transform: scale(1); box-shadow: 0 0 0 6px rgba(37, 211, 102, 0); }
+            100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+        }
+
+        /* ==========================================================================
+           3. HERO (BANNER DE BIENVENIDA)
+           ========================================================================== */
+        .hero {
+            padding: 10rem 2rem 6rem 2rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            background: radial-gradient(circle at top, rgba(255,255,255,0.03) 0%, transparent 70%);
+        }
+
+        .hero-badge {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            color: var(--text-muted);
+            margin-bottom: 1rem;
+            border: 1px solid rgba(255,255,255,0.1);
+            padding: 0.25rem 0.75rem;
+            border-radius: 4px;
+        }
+
+        .hero-title {
+            font-size: 3.5rem;
+            font-weight: 700;
+            letter-spacing: -0.03em;
+            line-height: 1.1;
+            max-width: 800px;
+            margin-bottom: 1.5rem;
+            text-transform: uppercase;
+        }
+
+        .hero-subtitle {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            max-width: 500px;
+            margin-bottom: 2.5rem;
+        }
+
+        /* ==========================================================================
+           4. SECCIÓN DE PRODUCTOS (GRID)
+           ========================================================================== */
+        .catalog-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem 8rem 2rem;
+        }
+
+        .section-title {
+            font-size: 1.5rem;
+            text-transform: uppercase;
+            letter-spacing: -0.02em;
+            margin-bottom: 2rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .section-title::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 2.5rem 1.5rem;
+        }
+
+        .product-card {
+            background-color: var(--surface-color);
+            border-radius: 12px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            border: 1px solid rgba(255, 255, 255, 0.02);
+            transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s ease;
+        }
+
+        .product-card:hover {
+            transform: translateY(-8px);
+            border-color: rgba(255, 255, 255, 0.1);
+        }
+
+        .product-image-wrapper {
+            position: relative;
+            width: 100%;
+            padding-top: 120%; /* Proporción vertical ideal para camisetas */
+            background-color: #1f1f1f;
+            overflow: hidden;
+        }
+
+        .product-image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .product-card:hover .product-image {
+            transform: scale(1.05);
+        }
+
+        .product-info {
+            padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+
+        .product-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 1.25rem;
+            gap: 1rem;
+        }
+
+        .product-title {
+            font-size: 1.15rem;
+            font-weight: 500;
+            letter-spacing: -0.01em;
+            color: var(--text-main);
+        }
+
+        .product-price {
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: var(--text-main);
+            white-space: nowrap;
+        }
+
+        .btn-order {
+            margin-top: auto;
+            width: 100%;
+            background-color: var(--accent-color);
+            color: #000000;
+            padding: 1rem;
+            border-radius: 8px;
+            font-weight: 700;
+            text-align: center;
+            font-size: 0.95rem;
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            gap: 0.5rem;
+            transition: var(--transition);
+            cursor: pointer;
+            border: none;
+        }
+
+        .btn-order:hover {
+            background-color: var(--accent-hover);
+            transform: scale(1.02);
+        }
+
+        /* Icono SVG de WhatsApp integrado */
+        .btn-order svg {
+            width: 18px;
+            height: 18px;
+            fill: currentColor;
+        }
+
+        /* ==========================================================================
+           5. FOOTER (PIE DE PÁGINA)
+           ========================================================================== */
+        .footer {
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            background-color: #070707;
+            padding: 4rem 2rem;
+            text-align: center;
+        }
+
+        .footer-brand {
+            font-size: 1.25rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+        }
+
+        .footer-text {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            max-width: 600px;
+            margin: 0 auto 1.5rem auto;
+        }
+
+        .footer-copy {
+            font-size: 0.8rem;
+            color: rgba(255, 255, 255, 0.2);
+        }
+
+        /* ==========================================================================
+           6. RESPONSIVE DESIGN (MEDIA QUERIES)
+           ========================================================================== */
+        @media (max-width: 768px) {
+            .hero {
+                padding: 8rem 1.5rem 4rem 1.5rem;
+            }
+            
+            .hero-title {
+                font-size: 2.25rem;
+            }
+
+            .catalog-container {
+                padding: 0 1.5rem 4rem 1.5rem;
+            }
+
+            .products-grid {
+                grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+                gap: 1.5rem 1rem;
+            }
+
+            .product-info {
+                padding: 1rem;
+            }
+            
+            .product-title, .product-price {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="navbar">
+        <div class="navbar-container">
+            <a href="#" class="brand-logo">VORTEX</a>
+            <div class="nav-status">
+                <span class="status-dot"></span>
+                <span>Pedidos Abiertos</span>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero">
+        <span class="hero-badge">Colección 2026</span>
+        <h1 class="hero-title">Drop Exclusivo Streetwear</h1>
+        <p class="hero-subtitle">Explora nuestro catálogo. Selecciona tus prendas favoritas y gestiona tu pedido directamente con nosotros vía WhatsApp.</p>
+    </section>
+
+    <main class="catalog-container">
+        <h2 class="section-title">Camisetas Disponibles</h2>
+        
+        <div class="products-grid">
+
+            <div class="product-card">
+                <div class="product-image-wrapper">
+                    <img src="https://images.unsplash.com/photo-1521572267360-ee0c2909d518?auto=format&fit=crop&q=80&w=600" alt="Camiseta Urbana Brand" class="product-image" loading="lazy">
+                </div>
+                <div class="product-info">
+                    <div class="product-meta">
+                        <h3 class="product-title">Camiseta Over-Sized "Vortex Graphic"</h3>
+                        <span class="product-price">29,99€</span>
+                    </div>
+                    <a href="https://wa.me/34XXXXXXXXX?text=Hola,%20estoy%20interesado%20en%20la%20Camiseta%20Vortex%20Graphic" target="_blank" class="btn-order">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.411 0 11.989 0c3.183.001 6.177 1.24 8.43 3.496 2.253 2.256 3.491 5.252 3.49 8.435-.004 6.581-5.355 11.93-11.932 11.93-1.939-.001-3.841-.472-5.544-1.37L0 24zm6.59-4.846c1.6.95 3.188 1.449 4.825 1.451 5.436 0 9.86-4.37 9.864-9.799.002-2.63-1.023-5.101-2.885-6.965C16.528 1.878 14.06 .851 11.43.851 5.993.851 1.57 5.221 1.566 10.65c-.001 1.745.467 3.447 1.356 4.96l-.982 3.587 3.707-.943zm11.667-6.009c-.329-.164-1.947-.949-2.247-1.059-.299-.11-.517-.164-.734.164-.217.328-.842 1.059-1.031 1.278-.19.219-.379.246-.708.082-1.223-.613-2.025-1.089-2.817-2.449-.21-.362.21-.336.6-.112.351.201.379.247.543.52.164.274.082.52-.041.767-.123.247-.734 1.766-.9 2.149-.162.374-.325.324-.543.215-.219-.11-1.261-.464-2.4-1.48-1.139-1.015-1.907-2.27-2.13-2.652-.223-.383-.024-.59.172-.784.176-.175.383-.448.574-.672.19-.224.254-.383.383-.639.127-.255.063-.48-.032-.672-.095-.192-.734-1.766-.1006-2.42-.267-.643-.523-.553-.734-.563-.217-.01-.466-.012-.716-.012-.25 0-.656.094-.99.459-.334.366-1.271 1.242-1.271 3.029 0 1.787 1.302 3.513 1.484 3.76.183.246 2.561 3.91 6.204 5.483.867.374 1.543.597 2.071.764.871.277 1.664.238 2.29.145.698-.104 1.947-.796 2.221-1.563.274-.767.274-1.424.192-1.563-.081-.14-.299-.223-.628-.388z"/>
+                        </svg>
+                        Comprar por WhatsApp
+                    </a>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-image-wrapper">
+                    <img src="https://images.unsplash.com/photo-1562157873-818bc0726f68?auto=format&fit=crop&q=80&w=600" alt="Camiseta Streetwear" class="product-image" loading="lazy">
+                </div>
+                <div class="product-info">
+                    <div class="product-meta">
+                        <h3 class="product-title">Camiseta Heavyweight "Acid Wash"</h3>
+                        <span class="product-price">34,99€</span>
+                    </div>
+                    <a href="https://wa.me/34XXXXXXXXX?text=Hola,%20estoy%20interesado%20en%20la%20Camiseta%20Acid%20Wash" target="_blank" class="btn-order">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.411 0 11.989 0c3.183.001 6.177 1.24 8.43 3.496 2.253 2.256 3.491 5.252 3.49 8.435-.004 6.581-5.355 11.93-11.932 11.93-1.939-.001-3.841-.472-5.544-1.37L0 24zm6.59-4.846c1.6.95 3.188 1.449 4.825 1.451 5.436 0 9.86-4.37 9.864-9.799.002-2.63-1.023-5.101-2.885-6.965C16.528 1.878 14.06 .851 11.43.851 5.993.851 1.57 5.221 1.566 10.65c-.001 1.745.467 3.447 1.356 4.96l-.982 3.587 3.707-.943zm11.667-6.009c-.329-.164-1.947-.949-2.247-1.059-.299-.11-.517-.164-.734.164-.217.328-.842 1.059-1.031 1.278-.19.219-.379.246-.708.082-1.223-.613-2.025-1.089-2.817-2.449-.21-.362.21-.336.6-.112.351.201.379.247.543.52.164.274.082.52-.041.767-.123.247-.734 1.766-.9 2.149-.162.374-.325.324-.543.215-.219-.11-1.261-.464-2.4-1.48-1.139-1.015-1.907-2.27-2.13-2.652-.223-.383-.024-.59.172-.784.176-.175.383-.448.574-.672.19-.224.254-.383.383-.639.127-.255.063-.48-.032-.672-.095-.192-.734-1.766-.1006-2.42-.267-.643-.523-.553-.734-.563-.217-.01-.466-.012-.716-.012-.25 0-.656.094-.99.459-.334.366-1.271 1.242-1.271 3.029 0 1.787 1.302 3.513 1.484 3.76.183.246 2.561 3.91 6.204 5.483.867.374 1.543.597 2.071.764.871.277 1.664.238 2.29.145.698-.104 1.947-.796 2.221-1.563.274-.767.274-1.424.192-1.563-.081-.14-.299-.223-.628-.388z"/>
+                        </svg>
+                        Comprar por WhatsApp
+                    </a>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="product-image-wrapper">
+                    <img src="https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?auto=format&fit=crop&q=80&w=600" alt="Camiseta Streetwear" class="product-image" loading="lazy">
+                </div>
+                <div class="product-info">
+                    <div class="product-meta">
+                        <h3 class="product-title">Camiseta Retro "Vintage Black"</h3>
+                        <span class="product-price">29,99€</span>
+                    </div>
+                    <a href="https://wa.me/34XXXXXXXXX?text=Hola,%20estoy%20interesado%20en%20la%20Camiseta%20Vintage%20Black" target="_blank" class="btn-order">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.411 0 11.989 0c3.183.001 6.177 1.24 8.43 3.496 2.253 2.256 3.491 5.252 3.49 8.435-.004 6.581-5.355 11.93-11.932 11.93-1.939-.001-3.841-.472-5.544-1.37L0 24zm6.59-4.846c1.6.95 3.188 1.449 4.825 1.451 5.436 0 9.86-4.37 9.864-9.799.002-2.63-1.023-5.101-2.885-6.965C16.528 1.878 14.06 .851 11.43.851 5.993.851 1.57 5.221 1.566 10.65c-.001 1.745.467 3.447 1.356 4.96l-.982 3.587 3.707-.943zm11.667-6.009c-.329-.164-1.947-.949-2.247-1.059-.299-.11-.517-.164-.734.164-.217.328-.842 1.059-1.031 1.278-.19.219-.379.246-.708.082-1.223-.613-2.025-1.089-2.817-2.449-.21-.362.21-.336.6-.112.351.201.379.247.543.52.164.274.082.52-.041.767-.123.247-.734 1.766-.9 2.149-.162.374-.325.324-.543.215-.219-.11-1.261-.464-2.4-1.48-1.139-1.015-1.907-2.27-2.13-2.652-.223-.383-.024-.59.172-.784.176-.175.383-.448.574-.672.19-.224.254-.383.383-.639.127-.255.063-.48-.032-.672-.095-.192-.734-1.766-.1006-2.42-.267-.643-.523-.553-.734-.563-.217-.01-.466-.012-.716-.012-.25 0-.656.094-.99.459-.334.366-1.271 1.242-1.271 3.029 0 1.787 1.302 3.513 1.484 3.76.183.246 2.561 3.91 6.204 5.483.867.374 1.543.597 2.071.764.871.277 1.664.238 2.29.145.698-.104 1.947-.796 2.221-1.563.274-.767.274-1.424.192-1.563-.081-.14-.299-.223-.628-.388z"/>
+                        </svg>
+                        Comprar por WhatsApp
+                    </a>
+                </div>
+            </div>
+
+            </div>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-brand">VORTEX STREETWEAR</div>
+        <p class="footer-text">Catálogo privado de importación. Envíos rápidos y atención personalizada las 24 horas a través de nuestros canales de contacto.</p>
+        <div class="footer-copy">&copy; 2026 Vortex Streetwear. Todos los derechos reservados.</div>
+    </footer>
+
+</body>
+</html>
