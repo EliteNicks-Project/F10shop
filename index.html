@@ -19,6 +19,8 @@
             --accent-color: #ffffff;
             --text-main: #ffffff;
             --text-muted: #888888;
+            /* RUTA DE TU LOGO: Cambia 'logo.jpg' por el nombre de tu archivo si subes otro diferente */
+            --logo-url: url('logo.jpg');
             /* Degradado oficial de Instagram para el botón */
             --instagram-gradient: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
             --font-main: 'Space Grotesk', sans-serif;
@@ -51,8 +53,19 @@
             display: block;
         }
 
+        /* Clase global para renderizar el logo de manera óptima */
+        .brand-logo-img {
+            background-image: var(--logo-url);
+            background-size: contain;
+            background-position: center;
+            background-repeat: no-repeat;
+            display: inline-block;
+            /* Filtro premium para invertir el fondo gris/claro del logo original a modo oscuro */
+            filter: invert(1) brightness(1.2);
+        }
+
         /* ==========================================================================
-           2. NAVBAR (CABECERA)
+           2. NAVBAR (CABECERA) CON LOGO
            ========================================================================== */
         .navbar {
             position: fixed;
@@ -69,17 +82,16 @@
         .navbar-container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 1.25rem 2rem;
+            padding: 0.8rem 2rem;
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
 
-        .brand-logo {
-            font-size: 1.5rem;
-            font-weight: 700;
-            letter-spacing: 0.05em;
-            text-transform: uppercase;
+        /* Logo ajustable en el menú superior */
+        .navbar .brand-logo-img {
+            width: 110px;
+            height: 40px;
         }
 
         .nav-status {
@@ -108,10 +120,10 @@
         }
 
         /* ==========================================================================
-           3. HERO (BANNER DE BIENVENIDA)
+           3. HERO (CON LOGO DESTACADO)
            ========================================================================== */
         .hero {
-            padding: 10rem 2rem 4rem 2rem;
+            padding: 11rem 2rem 4rem 2rem;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -119,15 +131,11 @@
             background: radial-gradient(circle at top, rgba(230, 104, 60, 0.04) 0%, transparent 60%);
         }
 
-        .hero-badge {
-            font-size: 0.75rem;
-            text-transform: uppercase;
-            letter-spacing: 0.2em;
-            color: var(--text-muted);
-            margin-bottom: 1rem;
-            border: 1px solid rgba(255,255,255,0.1);
-            padding: 0.25rem 0.75rem;
-            border-radius: 4px;
+        /* Logo de presentación centralizado */
+        .hero .brand-logo-img {
+            width: 160px;
+            height: 60px;
+            margin-bottom: 1.5rem;
         }
 
         .hero-title {
@@ -148,7 +156,7 @@
         }
 
         /* ==========================================================================
-           4. NUEVA SECCIÓN: INFORMACIÓN DE PEDIDOS (INFO BANNER)
+           4. SECCIÓN: INFORMACIÓN DE PEDIDOS
            ========================================================================== */
         .info-section {
             max-width: 1200px;
@@ -333,7 +341,6 @@
             opacity: 0.95;
         }
 
-        /* Icono SVG de Instagram */
         .btn-order svg {
             width: 18px;
             height: 18px;
@@ -341,7 +348,7 @@
         }
 
         /* ==========================================================================
-           6. FOOTER (PIE DE PÁGINA)
+           6. FOOTER (PIE DE PÁGINA) CON LOGO
            ========================================================================== */
         .footer {
             border-top: 1px solid rgba(255, 255, 255, 0.05);
@@ -350,11 +357,10 @@
             text-align: center;
         }
 
-        .footer-brand {
-            font-size: 1.25rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
+        /* Logo adaptable en el pie de página */
+        .footer .brand-logo-img {
+            width: 130px;
+            height: 50px;
             margin-bottom: 1rem;
         }
 
@@ -380,6 +386,11 @@
             
             .hero-title {
                 font-size: 2.25rem;
+            }
+
+            .hero .brand-logo-img {
+                width: 130px;
+                height: 50px;
             }
 
             .info-section {
@@ -421,7 +432,9 @@
 
     <header class="navbar">
         <div class="navbar-container">
-            <a href="#" class="brand-logo">F10WEARS</a>
+            <a href="#">
+                <span class="brand-logo-img" aria-label="F10WEARS Logo"></span>
+            </a>
             <div class="nav-status">
                 <span class="status-dot"></span>
                 <span>Drop Disponible</span>
@@ -430,7 +443,7 @@
     </header>
 
     <section class="hero">
-        <span class="hero-badge">Catálogo Privado</span>
+        <span class="brand-logo-img" aria-label="F10WEARS Icon"></span>
         <h1 class="hero-title">F10WEARS Drop</h1>
         <p class="hero-subtitle">Selecciona tus prendas favoritas y envíanos un mensaje directo a Instagram para gestionar tu pedido de forma rápida.</p>
     </section>
@@ -517,7 +530,7 @@
     </main>
 
     <footer class="footer">
-        <div class="footer-brand">F10WEARS</div>
+        <span class="brand-logo-img" aria-label="F10WEARS Footer Logo"></span>
         <p class="footer-text">Catálogo privado streetwear de importación. Consulta disponibilidad y gestiona tus pedidos enviando un DM a nuestro perfil oficial de Instagram.</p>
         <div class="footer-copy">&copy; 2026 F10Wears. Todos los derechos reservados.</div>
     </footer>
