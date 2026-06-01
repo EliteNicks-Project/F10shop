@@ -15,6 +15,7 @@
         :root {
             --bg-color: #0b0b0b;
             --surface-color: #161616;
+            --surface-accent: #222222;
             --accent-color: #ffffff;
             --text-main: #ffffff;
             --text-muted: #888888;
@@ -110,7 +111,7 @@
            3. HERO (BANNER DE BIENVENIDA)
            ========================================================================== */
         .hero {
-            padding: 10rem 2rem 6rem 2rem;
+            padding: 10rem 2rem 4rem 2rem;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -143,16 +144,78 @@
             font-size: 1.1rem;
             color: var(--text-muted);
             max-width: 550px;
-            margin-bottom: 2.5rem;
+            margin-bottom: 1rem;
         }
 
         /* ==========================================================================
-           4. SECCIÓN DE PRODUCTOS (GRID)
+           4. NUEVA SECCIÓN: INFORMACIÓN DE PEDIDOS (INFO BANNER)
+           ========================================================================== */
+        .info-section {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem 2rem;
+        }
+
+        .info-card {
+            background-color: var(--surface-color);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 16px;
+            padding: 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 2rem;
+            background: linear-gradient(135deg, var(--surface-color) 0%, #1c1c1c 100%);
+        }
+
+        .info-content h2 {
+            font-size: 1.3rem;
+            text-transform: uppercase;
+            letter-spacing: -0.01em;
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .info-content p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            max-width: 650px;
+        }
+
+        .btn-info {
+            background-color: var(--accent-color);
+            color: #000000;
+            padding: 0.9rem 1.75rem;
+            border-radius: 8px;
+            font-weight: 700;
+            font-size: 0.95rem;
+            white-space: nowrap;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.6rem;
+            transition: var(--transition);
+        }
+
+        .btn-info:hover {
+            background-color: #e0e0e0;
+            transform: translateY(-2px);
+        }
+
+        .btn-info svg {
+            width: 18px;
+            height: 18px;
+            fill: currentColor;
+        }
+
+        /* ==========================================================================
+           5. SECCIÓN DE PRODUCTOS (GRID)
            ========================================================================== */
         .catalog-container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 0 2rem 8rem 2rem;
+            padding: 2rem 2rem 8rem 2rem;
         }
 
         .section-title {
@@ -270,7 +333,7 @@
             opacity: 0.95;
         }
 
-        /* Icono SVG de Instagram optimizado */
+        /* Icono SVG de Instagram */
         .btn-order svg {
             width: 18px;
             height: 18px;
@@ -278,7 +341,7 @@
         }
 
         /* ==========================================================================
-           5. FOOTER (PIE DE PÁGINA)
+           6. FOOTER (PIE DE PÁGINA)
            ========================================================================== */
         .footer {
             border-top: 1px solid rgba(255, 255, 255, 0.05);
@@ -308,19 +371,35 @@
         }
 
         /* ==========================================================================
-           6. RESPONSIVE DESIGN (MEDIA QUERIES)
+           7. RESPONSIVE DESIGN (MEDIA QUERIES)
            ========================================================================== */
         @media (max-width: 768px) {
             .hero {
-                padding: 8rem 1.5rem 4rem 1.5rem;
+                padding: 8rem 1.5rem 3rem 1.5rem;
             }
             
             .hero-title {
                 font-size: 2.25rem;
             }
 
+            .info-section {
+                padding: 1rem 1.5rem;
+            }
+
+            .info-card {
+                flex-direction: column;
+                align-items: flex-start;
+                padding: 1.5rem;
+                gap: 1.25rem;
+            }
+
+            .btn-info {
+                width: 100%;
+                justify-content: center;
+            }
+
             .catalog-container {
-                padding: 0 1.5rem 4rem 1.5rem;
+                padding: 2rem 1.5rem 4rem 1.5rem;
             }
 
             .products-grid {
@@ -353,7 +432,27 @@
     <section class="hero">
         <span class="hero-badge">Catálogo Privado</span>
         <h1 class="hero-title">F10WEARS Drop</h1>
-        <p class="hero-subtitle">Selecciona tus camisetas favoritas de nuestro catálogo de Yupoo y envíanos un mensaje directo a Instagram para comprobar stock y realizar tu pedido.</p>
+        <p class="hero-subtitle">Selecciona tus prendas favoritas y envíanos un mensaje directo a Instagram para gestionar tu pedido de forma rápida.</p>
+    </section>
+
+    <section class="info-section">
+        <div class="info-card">
+            <div class="info-content">
+                <h2>
+                    <svg style="width: 20px; height: 20px; fill: #ffffff; display: inline-block; vertical-align: middle; margin-right: 4px;" viewBox="0 0 24 24">
+                        <path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/>
+                    </svg>
+                    Información Importante de Pedidos
+                </h2>
+                <p>Antes de realizar tu compra, te recomendamos revisar detenidamente nuestra guía con los métodos de pago, plazos de entrega, tarifas de envío y políticas de devoluciones.</p>
+            </div>
+            <a href="https://drive.google.com/file/d/1nTqUDkDdC27aBXteKrcjx1fB58c63_Em/view" target="_blank" class="btn-info">
+                <svg viewBox="0 0 24 24">
+                    <path d="M19 19H5V5h7V3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2v-7h-2v7zM14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7z"/>
+                </svg>
+                Ver Guía de Pedidos
+            </a>
+        </div>
     </section>
 
     <main class="catalog-container">
@@ -414,7 +513,7 @@
                 </div>
             </div>
 
-            </div>
+        </div>
     </main>
 
     <footer class="footer">
