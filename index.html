@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>VORTEX STREETWEAR | Catálogo Exclusivo</title>
+    <title>F10WEARS | Catálogo Exclusivo</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
@@ -16,12 +16,12 @@
             --bg-color: #0b0b0b;
             --surface-color: #161616;
             --accent-color: #ffffff;
-            --accent-hover: #e0e0e0;
             --text-main: #ffffff;
             --text-muted: #888888;
-            --whatsapp-green: #25D366;
+            /* Degradado oficial de Instagram para el botón */
+            --instagram-gradient: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
             --font-main: 'Space Grotesk', sans-serif;
-            --transition: all 0.3s ease;
+            --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
         }
 
         * {
@@ -63,7 +63,6 @@
             -webkit-backdrop-filter: blur(12px);
             border-bottom: 1px solid rgba(255, 255, 255, 0.05);
             z-index: 1000;
-            transition: var(--transition);
         }
 
         .navbar-container {
@@ -78,7 +77,7 @@
         .brand-logo {
             font-size: 1.5rem;
             font-weight: 700;
-            letter-spacing: -0.05em;
+            letter-spacing: 0.05em;
             text-transform: uppercase;
         }
 
@@ -96,15 +95,15 @@
         .status-dot {
             width: 8px;
             height: 8px;
-            background-color: var(--whatsapp-green);
+            background: linear-gradient(45deg, #f09433, #bc1888);
             border-radius: 50%;
             animation: pulse 2s infinite;
         }
 
         @keyframes pulse {
-            0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); }
-            70% { transform: scale(1); box-shadow: 0 0 0 6px rgba(37, 211, 102, 0); }
-            100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+            0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(220, 39, 67, 0.7); }
+            70% { transform: scale(1); box-shadow: 0 0 0 6px rgba(220, 39, 67, 0); }
+            100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(220, 39, 67, 0); }
         }
 
         /* ==========================================================================
@@ -116,7 +115,7 @@
             flex-direction: column;
             align-items: center;
             text-align: center;
-            background: radial-gradient(circle at top, rgba(255,255,255,0.03) 0%, transparent 70%);
+            background: radial-gradient(circle at top, rgba(230, 104, 60, 0.04) 0%, transparent 60%);
         }
 
         .hero-badge {
@@ -143,7 +142,7 @@
         .hero-subtitle {
             font-size: 1.1rem;
             color: var(--text-muted);
-            max-width: 500px;
+            max-width: 550px;
             margin-bottom: 2.5rem;
         }
 
@@ -197,7 +196,7 @@
         .product-image-wrapper {
             position: relative;
             width: 100%;
-            padding-top: 120%; /* Proporción vertical ideal para camisetas */
+            padding-top: 120%;
             background-color: #1f1f1f;
             overflow: hidden;
         }
@@ -248,8 +247,8 @@
         .btn-order {
             margin-top: auto;
             width: 100%;
-            background-color: var(--accent-color);
-            color: #000000;
+            background: var(--instagram-gradient);
+            color: #ffffff;
             padding: 1rem;
             border-radius: 8px;
             font-weight: 700;
@@ -258,18 +257,20 @@
             display: inline-flex;
             justify-content: center;
             align-items: center;
-            gap: 0.5rem;
+            gap: 0.6rem;
             transition: var(--transition);
             cursor: pointer;
             border: none;
+            box-shadow: 0 4px 15px rgba(220, 39, 67, 0.15);
         }
 
         .btn-order:hover {
-            background-color: var(--accent-hover);
             transform: scale(1.02);
+            box-shadow: 0 6px 20px rgba(220, 39, 67, 0.3);
+            opacity: 0.95;
         }
 
-        /* Icono SVG de WhatsApp integrado */
+        /* Icono SVG de Instagram optimizado */
         .btn-order svg {
             width: 18px;
             height: 18px;
@@ -290,6 +291,7 @@
             font-size: 1.25rem;
             font-weight: 700;
             text-transform: uppercase;
+            letter-spacing: 0.05em;
             margin-bottom: 1rem;
         }
 
@@ -340,39 +342,39 @@
 
     <header class="navbar">
         <div class="navbar-container">
-            <a href="#" class="brand-logo">VORTEX</a>
+            <a href="#" class="brand-logo">F10WEARS</a>
             <div class="nav-status">
                 <span class="status-dot"></span>
-                <span>Pedidos Abiertos</span>
+                <span>Drop Disponible</span>
             </div>
         </div>
     </header>
 
     <section class="hero">
-        <span class="hero-badge">Colección 2026</span>
-        <h1 class="hero-title">Drop Exclusivo Streetwear</h1>
-        <p class="hero-subtitle">Explora nuestro catálogo. Selecciona tus prendas favoritas y gestiona tu pedido directamente con nosotros vía WhatsApp.</p>
+        <span class="hero-badge">Catálogo Privado</span>
+        <h1 class="hero-title">F10WEARS Drop</h1>
+        <p class="hero-subtitle">Selecciona tus camisetas favoritas de nuestro catálogo de Yupoo y envíanos un mensaje directo a Instagram para comprobar stock y realizar tu pedido.</p>
     </section>
 
     <main class="catalog-container">
-        <h2 class="section-title">Camisetas Disponibles</h2>
+        <h2 class="section-title">Prendas Disponibles</h2>
         
         <div class="products-grid">
 
             <div class="product-card">
                 <div class="product-image-wrapper">
-                    <img src="https://images.unsplash.com/photo-1521572267360-ee0c2909d518?auto=format&fit=crop&q=80&w=600" alt="Camiseta Urbana Brand" class="product-image" loading="lazy">
+                    <img src="https://images.unsplash.com/photo-1521572267360-ee0c2909d518?auto=format&fit=crop&q=80&w=600" alt="Camiseta Urbana F10" class="product-image" loading="lazy">
                 </div>
                 <div class="product-info">
                     <div class="product-meta">
-                        <h3 class="product-title">Camiseta Over-Sized "Vortex Graphic"</h3>
+                        <h3 class="product-title">Camiseta "Sample Brand X" (Yupoo Batch)</h3>
                         <span class="product-price">29,99€</span>
                     </div>
-                    <a href="https://wa.me/34XXXXXXXXX?text=Hola,%20estoy%20interesado%20en%20la%20Camiseta%20Vortex%20Graphic" target="_blank" class="btn-order">
+                    <a href="https://www.instagram.com/f10wears?igsh=bDhqejF2amNrajJo" target="_blank" class="btn-order">
                         <svg viewBox="0 0 24 24">
-                            <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.411 0 11.989 0c3.183.001 6.177 1.24 8.43 3.496 2.253 2.256 3.491 5.252 3.49 8.435-.004 6.581-5.355 11.93-11.932 11.93-1.939-.001-3.841-.472-5.544-1.37L0 24zm6.59-4.846c1.6.95 3.188 1.449 4.825 1.451 5.436 0 9.86-4.37 9.864-9.799.002-2.63-1.023-5.101-2.885-6.965C16.528 1.878 14.06 .851 11.43.851 5.993.851 1.57 5.221 1.566 10.65c-.001 1.745.467 3.447 1.356 4.96l-.982 3.587 3.707-.943zm11.667-6.009c-.329-.164-1.947-.949-2.247-1.059-.299-.11-.517-.164-.734.164-.217.328-.842 1.059-1.031 1.278-.19.219-.379.246-.708.082-1.223-.613-2.025-1.089-2.817-2.449-.21-.362.21-.336.6-.112.351.201.379.247.543.52.164.274.082.52-.041.767-.123.247-.734 1.766-.9 2.149-.162.374-.325.324-.543.215-.219-.11-1.261-.464-2.4-1.48-1.139-1.015-1.907-2.27-2.13-2.652-.223-.383-.024-.59.172-.784.176-.175.383-.448.574-.672.19-.224.254-.383.383-.639.127-.255.063-.48-.032-.672-.095-.192-.734-1.766-.1006-2.42-.267-.643-.523-.553-.734-.563-.217-.01-.466-.012-.716-.012-.25 0-.656.094-.99.459-.334.366-1.271 1.242-1.271 3.029 0 1.787 1.302 3.513 1.484 3.76.183.246 2.561 3.91 6.204 5.483.867.374 1.543.597 2.071.764.871.277 1.664.238 2.29.145.698-.104 1.947-.796 2.221-1.563.274-.767.274-1.424.192-1.563-.081-.14-.299-.223-.628-.388z"/>
+                            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.051.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/>
                         </svg>
-                        Comprar por WhatsApp
+                        Pedir por Instagram
                     </a>
                 </div>
             </div>
@@ -385,29 +387,29 @@
                         <h3 class="product-title">Camiseta Heavyweight "Acid Wash"</h3>
                         <span class="product-price">34,99€</span>
                     </div>
-                    <a href="https://wa.me/34XXXXXXXXX?text=Hola,%20estoy%20interesado%20en%20la%20Camiseta%20Acid%20Wash" target="_blank" class="btn-order">
+                    <a href="https://www.instagram.com/f10wears?igsh=bDhqejF2amNrajJo" target="_blank" class="btn-order">
                         <svg viewBox="0 0 24 24">
-                            <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.411 0 11.989 0c3.183.001 6.177 1.24 8.43 3.496 2.253 2.256 3.491 5.252 3.49 8.435-.004 6.581-5.355 11.93-11.932 11.93-1.939-.001-3.841-.472-5.544-1.37L0 24zm6.59-4.846c1.6.95 3.188 1.449 4.825 1.451 5.436 0 9.86-4.37 9.864-9.799.002-2.63-1.023-5.101-2.885-6.965C16.528 1.878 14.06 .851 11.43.851 5.993.851 1.57 5.221 1.566 10.65c-.001 1.745.467 3.447 1.356 4.96l-.982 3.587 3.707-.943zm11.667-6.009c-.329-.164-1.947-.949-2.247-1.059-.299-.11-.517-.164-.734.164-.217.328-.842 1.059-1.031 1.278-.19.219-.379.246-.708.082-1.223-.613-2.025-1.089-2.817-2.449-.21-.362.21-.336.6-.112.351.201.379.247.543.52.164.274.082.52-.041.767-.123.247-.734 1.766-.9 2.149-.162.374-.325.324-.543.215-.219-.11-1.261-.464-2.4-1.48-1.139-1.015-1.907-2.27-2.13-2.652-.223-.383-.024-.59.172-.784.176-.175.383-.448.574-.672.19-.224.254-.383.383-.639.127-.255.063-.48-.032-.672-.095-.192-.734-1.766-.1006-2.42-.267-.643-.523-.553-.734-.563-.217-.01-.466-.012-.716-.012-.25 0-.656.094-.99.459-.334.366-1.271 1.242-1.271 3.029 0 1.787 1.302 3.513 1.484 3.76.183.246 2.561 3.91 6.204 5.483.867.374 1.543.597 2.071.764.871.277 1.664.238 2.29.145.698-.104 1.947-.796 2.221-1.563.274-.767.274-1.424.192-1.563-.081-.14-.299-.223-.628-.388z"/>
+                            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.051.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/>
                         </svg>
-                        Comprar por WhatsApp
+                        Pedir por Instagram
                     </a>
                 </div>
             </div>
 
             <div class="product-card">
                 <div class="product-image-wrapper">
-                    <img src="https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?auto=format&fit=crop&q=80&w=600" alt="Camiseta Streetwear" class="product-image" loading="lazy">
+                    <img src="https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?auto=format&fit=crop&q=80&w=600" alt="Camiseta Vintage" class="product-image" loading="lazy">
                 </div>
                 <div class="product-info">
                     <div class="product-meta">
                         <h3 class="product-title">Camiseta Retro "Vintage Black"</h3>
                         <span class="product-price">29,99€</span>
                     </div>
-                    <a href="https://wa.me/34XXXXXXXXX?text=Hola,%20estoy%20interesado%20en%20la%20Camiseta%20Vintage%20Black" target="_blank" class="btn-order">
+                    <a href="https://www.instagram.com/f10wears?igsh=bDhqejF2amNrajJo" target="_blank" class="btn-order">
                         <svg viewBox="0 0 24 24">
-                            <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.411 0 11.989 0c3.183.001 6.177 1.24 8.43 3.496 2.253 2.256 3.491 5.252 3.49 8.435-.004 6.581-5.355 11.93-11.932 11.93-1.939-.001-3.841-.472-5.544-1.37L0 24zm6.59-4.846c1.6.95 3.188 1.449 4.825 1.451 5.436 0 9.86-4.37 9.864-9.799.002-2.63-1.023-5.101-2.885-6.965C16.528 1.878 14.06 .851 11.43.851 5.993.851 1.57 5.221 1.566 10.65c-.001 1.745.467 3.447 1.356 4.96l-.982 3.587 3.707-.943zm11.667-6.009c-.329-.164-1.947-.949-2.247-1.059-.299-.11-.517-.164-.734.164-.217.328-.842 1.059-1.031 1.278-.19.219-.379.246-.708.082-1.223-.613-2.025-1.089-2.817-2.449-.21-.362.21-.336.6-.112.351.201.379.247.543.52.164.274.082.52-.041.767-.123.247-.734 1.766-.9 2.149-.162.374-.325.324-.543.215-.219-.11-1.261-.464-2.4-1.48-1.139-1.015-1.907-2.27-2.13-2.652-.223-.383-.024-.59.172-.784.176-.175.383-.448.574-.672.19-.224.254-.383.383-.639.127-.255.063-.48-.032-.672-.095-.192-.734-1.766-.1006-2.42-.267-.643-.523-.553-.734-.563-.217-.01-.466-.012-.716-.012-.25 0-.656.094-.99.459-.334.366-1.271 1.242-1.271 3.029 0 1.787 1.302 3.513 1.484 3.76.183.246 2.561 3.91 6.204 5.483.867.374 1.543.597 2.071.764.871.277 1.664.238 2.29.145.698-.104 1.947-.796 2.221-1.563.274-.767.274-1.424.192-1.563-.081-.14-.299-.223-.628-.388z"/>
+                            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.051.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/>
                         </svg>
-                        Comprar por WhatsApp
+                        Pedir por Instagram
                     </a>
                 </div>
             </div>
@@ -416,9 +418,9 @@
     </main>
 
     <footer class="footer">
-        <div class="footer-brand">VORTEX STREETWEAR</div>
-        <p class="footer-text">Catálogo privado de importación. Envíos rápidos y atención personalizada las 24 horas a través de nuestros canales de contacto.</p>
-        <div class="footer-copy">&copy; 2026 Vortex Streetwear. Todos los derechos reservados.</div>
+        <div class="footer-brand">F10WEARS</div>
+        <p class="footer-text">Catálogo privado streetwear de importación. Consulta disponibilidad y gestiona tus pedidos enviando un DM a nuestro perfil oficial de Instagram.</p>
+        <div class="footer-copy">&copy; 2026 F10Wears. Todos los derechos reservados.</div>
     </footer>
 
 </body>
