@@ -127,7 +127,7 @@
         }
 
         /* ==========================================================================
-           3. HERO (BANNER DE BIENVENIDA)
+           3. HERO (BANNER DE BIENVENIDA CON MEJORAS DE TEXTO)
            ========================================================================== */
         .hero {
             padding: 11rem 2rem 4rem 2rem;
@@ -173,16 +173,23 @@
             font-weight: 700;
             letter-spacing: -0.03em;
             line-height: 1.1;
-            max-width: 800px;
+            max-width: 850px;
             margin-bottom: 1.5rem;
             text-transform: uppercase;
             z-index: 1;
         }
 
+        /* Highlight para resaltar el texto comercial */
+        .hero-title span {
+            background: linear-gradient(45deg, #f09433, #dc2743);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
         .hero-subtitle {
             font-size: 1.1rem;
             color: var(--text-muted);
-            max-width: 550px;
+            max-width: 600px;
             margin-bottom: 1rem;
             z-index: 1;
         }
@@ -193,7 +200,7 @@
         .info-section {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 2rem 2rem;
+            padding: 1rem 2rem;
         }
 
         .info-card {
@@ -250,7 +257,62 @@
         }
 
         /* ==========================================================================
-           NUEVO: BOTONES DE FILTROS DE CATEGORÍAS
+           NUEVA SECCIÓN: TEXTO COMERCIAL DE PEDIDOS BAJO DEMANDA Y EXCLUSIVIDAD
+           ========================================================================== */
+        .custom-orders-banner {
+            max-width: 1200px;
+            margin: 1.5rem auto;
+            padding: 0 2rem;
+        }
+
+        .custom-box {
+            background-color: rgba(255, 255, 255, 0.01);
+            border: 1px dashed rgba(255, 255, 255, 0.15);
+            border-radius: 12px;
+            padding: 1.5rem;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+        }
+
+        .custom-item {
+            display: flex;
+            gap: 1rem;
+            align-items: flex-start;
+        }
+
+        .custom-icon {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 0.5rem;
+            border-radius: 8px;
+            color: var(--text-main);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .custom-icon svg {
+            width: 20px;
+            height: 20px;
+            fill: currentColor;
+        }
+
+        .custom-text h4 {
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 0.02em;
+            margin-bottom: 0.25rem;
+            color: var(--text-main);
+        }
+
+        .custom-text p {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+
+        /* ==========================================================================
+           BOTONES DE FILTROS DE CATEGORÍAS
            ========================================================================== */
         .filter-container {
             display: flex;
@@ -258,7 +320,7 @@
             align-items: center;
             flex-wrap: wrap;
             gap: 0.75rem;
-            margin: 1.5rem auto 3rem auto;
+            margin: 2.5rem auto 2.5rem auto;
             max-width: 1200px;
             padding: 0 2rem;
         }
@@ -333,7 +395,6 @@
             transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s ease, opacity 0.3s ease;
         }
 
-        /* Animación suave para cuando JavaScript oculta/muestra tarjetas */
         .product-card.hidden {
             display: none !important;
         }
@@ -348,20 +409,16 @@
             width: 100%;
             padding-top: 120%;
             overflow: hidden;
-            
-            /* EFECTO SKELETON BASE: Fondo oscuro animado mientras carga la imagen */
             background: linear-gradient(90deg, #1f1f1f 25%, #2a2a2a 50%, #1f1f1f 75%);
             background-size: 200% 100%;
             animation: skeleton-loading 1.5s infinite ease-in-out;
         }
 
-        /* Animación del pulso de luz del skeleton */
         @keyframes skeleton-loading {
             0% { background-position: 200% 0; }
             100% { background-position: -200% 0; }
         }
 
-        /* Cuando la imagen se ha cargado por completo eliminamos la animación */
         .product-image-wrapper.loaded {
             background: #1f1f1f;
             animation: none;
@@ -401,12 +458,9 @@
             height: 100%;
             object-fit: cover;
             transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.3s ease;
-            
-            /* Ocultamos la imagen al principio para que se vea el skeleton */
             opacity: 0;
         }
 
-        /* Clase de JS para mostrar la foto con fundido suave al terminar de descargar */
         .product-image.visible {
             opacity: 1;
         }
@@ -545,8 +599,14 @@
                 font-size: 2.25rem;
             }
 
+            .custom-box {
+                grid-template-columns: 1fr;
+                gap: 1.25rem;
+                padding: 1.25rem;
+            }
+
             .filter-container {
-                margin: 1rem auto 2rem auto;
+                margin: 2rem auto 1.5rem auto;
                 padding: 0 1rem;
                 gap: 0.5rem;
             }
@@ -607,9 +667,10 @@
     </header>
 
     <section class="hero">
-        <span class="hero-badge">Catálogo Privado</span>
-        <h1 class="hero-title">F10WEARS Drop</h1>
-        <p class="hero-subtitle">Selecciona tus prendas favoritas y envíanos un mensaje directo a Instagram para gestionar tu pedido de forma rápida.</p>
+        <span class="hero-badge">Catálogo Privado de Importación</span>
+        <!-- FRASE COMERCIAL AÑADIDA AL TÍTULO -->
+        <h1 class="hero-title">La mejor ropa urbana <span>al mejor precio</span></h1>
+        <p class="hero-subtitle">Navega por las colecciones exclusivas. Selecciona tus modelos favoritos y escríbenos directamente por mensaje privado a Instagram para gestionar tu pedido.</p>
     </section>
 
     <section class="info-section">
@@ -629,6 +690,30 @@
                 </svg>
                 Ver Guía de Pedidos
             </a>
+        </div>
+    </section>
+
+    <!-- NUEVO BLOQUE: ENCARGOS BAJO DEMANDA Y LLAMADA A SEGUIR EN IG -->
+    <section class="custom-orders-banner">
+        <div class="custom-box">
+            <div class="custom-item">
+                <div class="custom-icon">
+                    <svg viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg>
+                </div>
+                <div class="custom-text">
+                    <h4>¿Buscas algo que no está aquí?</h4>
+                    <p>Si tienes en mente alguna prenda, zapatilla o accesorio específico que no aparece en estos catálogos, <strong>no dudes en preguntarnos por DM</strong>. ¡Te lo conseguimos!</p>
+                </div>
+            </div>
+            <div class="custom-item">
+                <div class="custom-icon">
+                    <svg viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.5 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+                </div>
+                <div class="custom-text">
+                    <h4>¡Atento a nuestras Redes!</h4>
+                    <p>Síguenos de cerca en nuestra cuenta de Instagram. Subimos ofertas flash semanales, avisos de drops limitados y descuentos exclusivos en historias.</p>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -816,9 +901,6 @@
         <div class="footer-copy">&copy; 2026 F10Wears. Todos los derechos reservados.</div>
     </footer>
 
-    <!-- ==========================================================================
-       LÓGICA JAVASCRIPT: FILTROS DINÁMICOS Y SKELETON LOADER
-       ========================================================================== */ -->
     <script>
         document.addEventListener("DOMContentLoaded", () => {
             
@@ -826,11 +908,9 @@
             const images = document.querySelectorAll(".product-image");
             
             images.forEach(img => {
-                // Comprobamos si la imagen ya se había cacheado y cargado
                 if (img.complete) {
                     triggerImageLoadEffect(img);
                 } else {
-                    // Si no, esperamos a que se descargue por completo
                     img.addEventListener("load", () => {
                         triggerImageLoadEffect(img);
                     });
@@ -843,20 +923,17 @@
                 img.classList.add("visible");
             }
 
-
             /* 2. LÓGICA DE FILTROS DINÁMICOS */
             const filterButtons = document.querySelectorAll(".filter-btn");
             const productCards = document.querySelectorAll(".product-card");
 
             filterButtons.forEach(button => {
                 button.addEventListener("click", () => {
-                    // Remover clase activa del botón anterior y ponerla en el actual
                     filterButtons.forEach(btn => btn.classList.remove("active"));
                     button.classList.add("active");
 
                     const selectedFilter = button.getAttribute("data-filter");
 
-                    // Mostrar u ocultar tarjetas con transiciones limpias
                     productCards.forEach(card => {
                         const cardCategory = card.getAttribute("data-category");
                         
