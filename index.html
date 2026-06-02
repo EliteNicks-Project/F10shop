@@ -23,6 +23,9 @@
             --instagram-gradient: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
             --font-main: 'Space Grotesk', sans-serif;
             --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+            
+            /* VARIABLE DEL LOGO ACTUALIZADA CON TU ARCHIVO EXACTO */
+            --logo-src: url('logoweb.jpeg');
         }
 
         * {
@@ -69,10 +72,26 @@
         .navbar-container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 1.25rem 2rem;
+            padding: 1rem 2rem;
             display: flex;
             justify-content: space-between;
             align-items: center;
+        }
+
+        .brand-logo-container {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .brand-logo-img {
+            width: 35px;
+            height: 35px;
+            background-image: var(--logo-src);
+            background-size: contain;
+            background-position: center;
+            background-repeat: no-repeat;
+            border-radius: 6px;
         }
 
         .brand-logo {
@@ -111,12 +130,28 @@
            3. HERO (BANNER DE BIENVENIDA)
            ========================================================================== */
         .hero {
-            padding: 10rem 2rem 4rem 2rem;
+            padding: 11rem 2rem 4rem 2rem;
             display: flex;
             flex-direction: column;
             align-items: center;
             text-align: center;
             background: radial-gradient(circle at top, rgba(230, 104, 60, 0.04) 0%, transparent 60%);
+            position: relative;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 15%;
+            width: 180px;
+            height: 180px;
+            background-image: var(--logo-src);
+            background-size: contain;
+            background-position: center;
+            background-repeat: no-repeat;
+            opacity: 0.03;
+            pointer-events: none;
+            z-index: 0;
         }
 
         .hero-badge {
@@ -124,10 +159,13 @@
             text-transform: uppercase;
             letter-spacing: 0.2em;
             color: var(--text-muted);
-            margin-bottom: 1rem;
+            margin-bottom: 1.5rem;
             border: 1px solid rgba(255,255,255,0.1);
             padding: 0.25rem 0.75rem;
             border-radius: 4px;
+            background-color: rgba(11, 11, 11, 0.6);
+            backdrop-filter: blur(4px);
+            z-index: 1;
         }
 
         .hero-title {
@@ -138,6 +176,7 @@
             max-width: 800px;
             margin-bottom: 1.5rem;
             text-transform: uppercase;
+            z-index: 1;
         }
 
         .hero-subtitle {
@@ -145,10 +184,11 @@
             color: var(--text-muted);
             max-width: 550px;
             margin-bottom: 1rem;
+            z-index: 1;
         }
 
         /* ==========================================================================
-           4. NUEVA SECCIÓN: INFORMACIÓN DE PEDIDOS (INFO BANNER)
+           4. INFORMACIÓN DE PEDIDOS (INFO BANNER)
            ========================================================================== */
         .info-section {
             max-width: 1200px;
@@ -264,6 +304,32 @@
             overflow: hidden;
         }
 
+        .product-image-wrapper::after {
+            content: '';
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            width: 24px;
+            height: 24px;
+            background-image: var(--logo-src);
+            background-size: contain;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-color: rgba(11, 11, 11, 0.5);
+            backdrop-filter: blur(4px);
+            border-radius: 4px;
+            opacity: 0.7;
+            z-index: 2;
+            pointer-events: none;
+            border: 1px solid rgba(255,255,255,0.05);
+            transition: var(--transition);
+        }
+
+        .product-card:hover .product-image-wrapper::after {
+            opacity: 1;
+            transform: scale(1.05);
+        }
+
         .product-image {
             position: absolute;
             top: 0;
@@ -342,7 +408,6 @@
             opacity: 0.95;
         }
 
-        /* Icono SVG de Instagram */
         .btn-order svg {
             width: 18px;
             height: 18px;
@@ -355,8 +420,20 @@
         .footer {
             border-top: 1px solid rgba(255, 255, 255, 0.05);
             background-color: #070707;
-            padding: 4rem 2rem;
+            padding: 5rem 2rem 4rem 2rem;
             text-align: center;
+            position: relative;
+        }
+
+        .footer-logo {
+            width: 60px;
+            height: 60px;
+            background-image: var(--logo-src);
+            background-size: contain;
+            background-position: center;
+            background-repeat: no-repeat;
+            margin: 0 auto 1.5rem auto;
+            filter: drop-shadow(0 4px 10px rgba(0,0,0,0.5));
         }
 
         .footer-brand {
@@ -384,9 +461,15 @@
            ========================================================================= */
         @media (max-width: 768px) {
             .hero {
-                padding: 8rem 1.5rem 3rem 1.5rem;
+                padding: 9rem 1.5rem 3rem 1.5rem;
             }
             
+            .hero::before {
+                width: 130px;
+                height: 130px;
+                top: 20%;
+            }
+
             .hero-title {
                 font-size: 2.25rem;
             }
@@ -430,7 +513,10 @@
 
     <header class="navbar">
         <div class="navbar-container">
-            <a href="#" class="brand-logo">F10WEARS</a>
+            <a href="#" class="brand-logo-container">
+                <div class="brand-logo-img" aria-hidden="true"></div>
+                <span class="brand-logo">F10WEARS</span>
+            </a>
             <div class="nav-status">
                 <span class="status-dot"></span>
                 <span>Drop Disponible</span>
@@ -455,10 +541,9 @@
                 </h2>
                 <p>Antes de realizar tu compra, te recomendamos revisar detenidamente nuestra guía con los métodos de pago, plazos de entrega, tarifas de envío y políticas de devoluciones.</p>
             </div>
-            <!-- ENLACE OPTIMIZADO: Formateado con %20 para evitar roturas debido a los espacios en GitHub -->
             <a href="https://drive.google.com/file/d/1VAwrnXlDD2RloIaPIMPrSUqKQKp5puyJ/view?usp=sharing" target="_blank" class="btn-info">
                 <svg viewBox="0 0 24 24">
-                    <path d="M19 19H5V5h7V3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2v-7h-2v7zM14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7z"/>
+                    <path d="M14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7z"/>
                 </svg>
                 Ver Guía de Pedidos
             </a>
@@ -470,7 +555,7 @@
         
         <div class="products-grid">
 
-            <!-- TARJETA 1: Catálogo Productos 24h -->
+            <!-- TARJETA 1 -->
             <div class="product-card">
                 <div class="product-image-wrapper">
                     <img src="e17894e0-0aa1-4ce3-9ae8-143f2ab26071.jpg" alt="Conjunto Deportivo Gris Under Armour" class="product-image" loading="lazy">
@@ -490,7 +575,7 @@
                 </div>
             </div>
 
-            <!-- TARJETA 2: NUEVO catálogo -->
+            <!-- TARJETA 2 -->
             <div class="product-card">
                 <div class="product-image-wrapper">
                     <img src="imgi_10_small (3).jpg" alt="Camiseta Streetwear" class="product-image" loading="lazy">
@@ -510,7 +595,7 @@
                 </div>
             </div>
 
-            <!-- TARJETA 3: CATÁLOGO 1 ROPA -->
+            <!-- TARJETA 3 -->
             <div class="product-card">
                 <div class="product-image-wrapper">
                     <img src="ropa1.jpeg" alt="Camiseta Vintage" class="product-image" loading="lazy">
@@ -530,7 +615,7 @@
                 </div>
             </div>
 
-            <!-- TARJETA 4: catálogo 1 zapatillas -->
+            <!-- TARJETA 4 -->
             <div class="product-card">
                 <div class="product-image-wrapper">
                     <img src="zapas1.2.jpeg" alt="Catálogo 1 Zapatillas" class="product-image" loading="lazy">
@@ -550,7 +635,7 @@
                 </div>
             </div>
 
-            <!-- TARJETA 5: catálogo 2 zapatillas -->
+            <!-- TARJETA 5 -->
             <div class="product-card">
                 <div class="product-image-wrapper">
                     <img src="zapas2.jpeg" alt="Catálogo 2 Zapatillas" class="product-image" loading="lazy">
@@ -570,7 +655,7 @@
                 </div>
             </div>
 
-            <!-- TARJETA 6: bolsas riñoneras... (contraseña 888888) -->
+            <!-- TARJETA 6 -->
             <div class="product-card">
                 <div class="product-image-wrapper">
                     <img src="riñoneras1.jpeg" alt="Bolsas riñoneras..." class="product-image" loading="lazy">
@@ -590,7 +675,7 @@
                 </div>
             </div>
 
-            <!-- TARJETA 7: bolsas riñoneras 2 -->
+            <!-- TARJETA 7 -->
             <div class="product-card">
                 <div class="product-image-wrapper">
                     <img src="riñoneras2.jpg" alt="Bolsas riñoneras 2" class="product-image" loading="lazy">
@@ -610,7 +695,7 @@
                 </div>
             </div>
 
-            <!-- TARJETA 8: conjuntos fútbol -->
+            <!-- TARJETA 8 -->
             <div class="product-card">
                 <div class="product-image-wrapper">
                     <img src="conjuntos cortos.jpeg" alt="Conjuntos Fútbol" class="product-image" loading="lazy">
@@ -630,11 +715,11 @@
                 </div>
             </div>
 
-
         </div>
     </main>
 
     <footer class="footer">
+        <div class="footer-logo" aria-hidden="true"></div>
         <div class="footer-brand">F10WEARS</div>
         <p class="footer-text">Catálogo privado streetwear de importación. Consulta disponibilidad y gestiona tus pedidos enviando un DM a nuestro perfil oficial de Instagram.</p>
         <div class="footer-copy">&copy; 2026 F10Wears. Todos los derechos reservados.</div>
