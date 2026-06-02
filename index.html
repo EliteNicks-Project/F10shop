@@ -54,6 +54,19 @@
             display: block;
         }
 
+        /* CLASE PARA EFECTO SCROLL REVEAL (PUNTO 1) */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+            will-change: transform, opacity;
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
         /* ==========================================================================
            2. NAVBAR (CABECERA)
            ========================================================================== */
@@ -127,7 +140,7 @@
         }
 
         /* ==========================================================================
-           3. HERO (BANNER DE BIENVENIDA CON MEJORAS DE TEXTO)
+           3. HERO (BANNER DE BIENVENIDA)
            ========================================================================== */
         .hero {
             padding: 11rem 2rem 4rem 2rem;
@@ -179,7 +192,6 @@
             z-index: 1;
         }
 
-        /* Highlight para resaltar el texto comercial */
         .hero-title span {
             background: linear-gradient(45deg, #f09433, #dc2743);
             -webkit-background-clip: text;
@@ -257,7 +269,7 @@
         }
 
         /* ==========================================================================
-           NUEVA SECCIÓN: TEXTO COMERCIAL DE PEDIDOS BAJO DEMANDA Y EXCLUSIVIDAD
+           ENCARGOS BAJO DEMANDA
            ========================================================================== */
         .custom-orders-banner {
             max-width: 1200px;
@@ -400,7 +412,6 @@
             display: none !important;
         }
 
-        /* EFECTO HOVER DE LA TARJETA COMPLETA */
         .product-card:hover {
             transform: translateY(-10px);
             border-color: rgba(255, 255, 255, 0.2);
@@ -417,14 +428,13 @@
             animation: skeleton-loading 1.5s infinite ease-in-out;
         }
 
-        /* MEJORA: cursor pointer para indicar que la imagen es clickeable */
         .product-image-link {
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            z-index: 2; /* Por encima de la imagen pero por debajo del logo/badge */
+            z-index: 2;
             cursor: pointer;
         }
 
@@ -438,7 +448,6 @@
             animation: none;
         }
 
-        /* LOGO INTERNO DE LA IMAGEN */
         .product-image-wrapper::after {
             content: '';
             position: absolute;
@@ -465,7 +474,6 @@
             transform: scale(1.05);
         }
 
-        /* DISEÑO DE LOS BADGES COMERCIALES */
         .card-badge {
             position: absolute;
             top: 12px;
@@ -508,7 +516,6 @@
             opacity: 1;
         }
 
-        /* ZOOM SUAVE EN LA IMAGEN AL HACER HOVER */
         .product-card:hover .product-image {
             transform: scale(1.08);
         }
@@ -528,7 +535,6 @@
             gap: 1rem;
         }
 
-        /* CRITERIO UNIFICADO, FUERTE Y DESTACADO PARA LOS TÍTULOS */
         .product-title {
             font-size: 1.1rem;
             font-weight: 700;
@@ -573,7 +579,6 @@
             box-shadow: 0 4px 15px rgba(220, 39, 67, 0.15);
         }
 
-        /* EFECTO FLOTANTE DEL BOTÓN EN EL HOVER DE TARJETA */
         .product-card:hover .btn-order {
             transform: scale(1.01);
             box-shadow: 0 8px 25px rgba(220, 39, 67, 0.4);
@@ -590,7 +595,7 @@
         }
 
         /* ==========================================================================
-           6. FOOTER (PIE DE PÁGINA)
+           6. FOOTER (PIE DE PÁGINA PROFESIONALIZADO - PUNTO 3)
            ========================================================================== */
         .footer {
             border-top: 1px solid rgba(255, 255, 255, 0.05);
@@ -624,6 +629,27 @@
             color: var(--text-muted);
             max-width: 600px;
             margin: 0 auto 1.5rem auto;
+        }
+
+        /* NUEVAS CLASES PARA LOS ENLACES LEGALES (MÍNIMALISTAS Y PROFESIONALES) */
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-bottom: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .footer-link {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            transition: var(--transition);
+        }
+
+        .footer-link:hover {
+            color: var(--text-main);
         }
 
         .footer-copy {
@@ -716,13 +742,14 @@
         </div>
     </header>
 
-    <section class="hero">
+    <!-- SECCIONES PRINCIPALES CON LA CLASE "REVEAL" PARA ANIMACIÓN (PUNTO 1) -->
+    <section class="hero reveal">
         <span class="hero-badge">Catálogo Privado de Importación</span>
         <h1 class="hero-title">La mejor ropa urbana <span>al mejor precio</span></h1>
         <p class="hero-subtitle">Navega por las colecciones exclusivas. Selecciona tus modelos favoritos y escríbenos directamente por mensaje privado a Instagram para gestionar tu pedido.</p>
     </section>
 
-    <section class="info-section">
+    <section class="info-section reveal">
         <div class="info-card">
             <div class="info-content">
                 <h2>
@@ -742,7 +769,7 @@
         </div>
     </section>
 
-    <section class="custom-orders-banner">
+    <section class="custom-orders-banner reveal">
         <div class="custom-box">
             <div class="custom-item">
                 <div class="custom-icon">
@@ -765,7 +792,7 @@
         </div>
     </section>
 
-    <div class="filter-container">
+    <div class="filter-container reveal">
         <button class="filter-btn active" data-filter="all">Todos</button>
         <button class="filter-btn" data-filter="ropa">Ropa</button>
         <button class="filter-btn" data-filter="zapatillas">Zapatillas</button>
@@ -774,15 +801,14 @@
     </div>
 
     <main class="catalog-container">
-        <h2 class="section-title">Catálogos Disponibles</h2>
+        <h2 class="section-title reveal">Catálogos Disponibles</h2>
         
         <div class="products-grid">
 
-            <!-- TARJETA 1 -->
-            <div class="product-card" data-category="ropa">
+            <!-- TARJETA 1 (CON CLASE REVEAL) -->
+            <div class="product-card reveal" data-category="ropa">
                 <div class="card-badge recommended">Recomendado</div>
                 <div class="product-image-wrapper">
-                    <!-- ENLACE EN LA IMAGEN -->
                     <a href="https://scarfacestock.com/" target="_blank" class="product-image-link">
                         <img src="e17894e0-0aa1-4ce3-9ae8-143f2ab26071.jpg" alt="Conjunto Deportivo Gris Under Armour" class="product-image">
                     </a>
@@ -802,11 +828,10 @@
                 </div>
             </div>
 
-            <!-- TARJETA 2 -->
-            <div class="product-card" data-category="ropa">
+            <!-- TARJETA 2 (CON CLASE REVEAL) -->
+            <div class="product-card reveal" data-category="ropa">
                 <div class="card-badge top-seller">Top Ventas</div>
                 <div class="product-image-wrapper">
-                    <!-- ENLACE EN LA IMAGEN -->
                     <a href="https://drive.google.com/drive/folders/175ggtbfXf8xxQ-JaHozwUBvxhzPs6Mv6" target="_blank" class="product-image-link">
                         <img src="imgi_10_small (3).jpg" alt="Camiseta Streetwear" class="product-image">
                     </a>
@@ -827,9 +852,8 @@
             </div>
 
             <!-- TARJETA 3 -->
-            <div class="product-card" data-category="ropa">
+            <div class="product-card reveal" data-category="ropa">
                 <div class="product-image-wrapper">
-                    <!-- ENLACE EN LA IMAGEN -->
                     <a href="https://18588679886.x.yupoo.com/albums" target="_blank" class="product-image-link">
                         <img src="ropa1.jpeg" alt="Camiseta Vintage" class="product-image">
                     </a>
@@ -850,9 +874,8 @@
             </div>
 
             <!-- TARJETA 4 -->
-            <div class="product-card" data-category="zapatillas">
+            <div class="product-card reveal" data-category="zapatillas">
                 <div class="product-image-wrapper">
-                    <!-- ENLACE EN LA IMAGEN -->
                     <a href="https://lifeng1066.x.yupoo.com/albums" target="_blank" class="product-image-link">
                         <img src="zapas1.2.jpeg" alt="Catálogo 1 Zapatillas" class="product-image">
                     </a>
@@ -873,9 +896,8 @@
             </div>
 
             <!-- TARJETA 5 -->
-            <div class="product-card" data-category="zapatillas">
+            <div class="product-card reveal" data-category="zapatillas">
                 <div class="product-image-wrapper">
-                    <!-- ENLACE EN LA IMAGEN -->
                     <a href="https://nulixieye.x.yupoo.com/categories/3085242" target="_blank" class="product-image-link">
                         <img src="zapas2.jpeg" alt="Catálogo 2 Zapatillas" class="product-image">
                     </a>
@@ -896,9 +918,8 @@
             </div>
 
             <!-- TARJETA 6 -->
-            <div class="product-card" data-category="accesorios">
+            <div class="product-card reveal" data-category="accesorios">
                 <div class="product-image-wrapper">
-                    <!-- ENLACE EN LA IMAGEN -->
                     <a href="https://xinfangxiangpj.x.yupoo.com/albums" target="_blank" class="product-image-link">
                         <img src="riñoneras1.jpeg" alt="Bolsas riñoneras..." class="product-image">
                     </a>
@@ -919,9 +940,8 @@
             </div>
 
             <!-- TARJETA 7 -->
-            <div class="product-card" data-category="accesorios">
+            <div class="product-card reveal" data-category="accesorios">
                 <div class="product-image-wrapper">
-                    <!-- ENLACE EN LA IMAGEN -->
                     <a href="https://bags.qiqiyg.com/defaulten.html" target="_blank" class="product-image-link">
                         <img src="riñoneras2.jpg" alt="Bolsas riñoneras 2" class="product-image">
                     </a>
@@ -942,9 +962,8 @@
             </div>
 
             <!-- TARJETA 8 -->
-            <div class="product-card" data-category="futbol">
+            <div class="product-card reveal" data-category="futbol">
                 <div class="product-image-wrapper">
-                    <!-- ENLACE EN LA IMAGEN -->
                     <a href="https://huang456852.x.yupoo.com/collections/2887577" target="_blank" class="product-image-link">
                         <img src="conjuntos cortos.jpeg" alt="Conjuntos Fútbol" class="product-image">
                     </a>
@@ -971,6 +990,14 @@
         <div class="footer-logo" aria-hidden="true"></div>
         <div class="footer-brand">F10WEARS</div>
         <p class="footer-text">Catálogo privado streetwear de importación. Consulta disponibilidad y gestiona tus pedidos enviando un DM a nuestro perfil oficial de Instagram.</p>
+        
+        <!-- NUEVO APARTADO: ENLACES LEGALES ESTÉTICOS (PUNTO 3) -->
+        <div class="footer-links">
+            <a href="#" class="footer-link">Aviso Legal</a>
+            <a href="#" class="footer-link">Política de Privacidad</a>
+            <a href="#" class="footer-link">Términos de Servicio</a>
+        </div>
+
         <div class="footer-copy">&copy; 2026 F10Wears. Todos los derechos reservados.</div>
     </footer>
 
@@ -1015,9 +1042,33 @@
                         } else {
                             card.classList.add("hidden");
                         }
+                        // Re-ejecutar el chequeo de reveal por si aparecen tarjetas ocultas
+                        revealElements();
                     });
                 });
             });
+
+            /* 3. NUEVA LÓGICA: SCRIPT DE SCROLL REVEAL (PUNTO 1) */
+            const revealElements = () => {
+                const elements = document.querySelectorAll(".reveal");
+                const windowHeight = window.innerHeight;
+                
+                elements.forEach(element => {
+                    // Calculamos la distancia del elemento al tope de la pantalla
+                    const elementTop = element.getBoundingClientRect().top;
+                    // Se activa cuando el elemento asoma 50px desde el fondo de la pantalla
+                    const revealPoint = 50; 
+                    
+                    if (elementTop < windowHeight - revealPoint) {
+                        element.classList.add("active");
+                    }
+                });
+            };
+
+            // Ejecutamos una primera vez al cargar para activar lo que ya está en pantalla
+            revealElements();
+            // Escuchamos el evento de scroll del usuario
+            window.addEventListener("scroll", revealElements);
 
         });
     </script>
