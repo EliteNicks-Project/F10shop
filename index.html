@@ -400,7 +400,7 @@
             display: none !important;
         }
 
-        /* MEJORA: EFECTO HOVER DE LA TARJETA COMPLETA */
+        /* EFECTO HOVER DE LA TARJETA COMPLETA */
         .product-card:hover {
             transform: translateY(-10px);
             border-color: rgba(255, 255, 255, 0.2);
@@ -415,6 +415,17 @@
             background: linear-gradient(90deg, #1f1f1f 25%, #2a2a2a 50%, #1f1f1f 75%);
             background-size: 200% 100%;
             animation: skeleton-loading 1.5s infinite ease-in-out;
+        }
+
+        /* MEJORA: cursor pointer para indicar que la imagen es clickeable */
+        .product-image-link {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 2; /* Por encima de la imagen pero por debajo del logo/badge */
+            cursor: pointer;
         }
 
         @keyframes skeleton-loading {
@@ -454,7 +465,7 @@
             transform: scale(1.05);
         }
 
-        /* NUEVA MEJORA: DISEÑO DE LOS NUEVOS BADGES COMERCIALES */
+        /* DISEÑO DE LOS BADGES COMERCIALES */
         .card-badge {
             position: absolute;
             top: 12px;
@@ -473,12 +484,12 @@
         }
         
         .card-badge.recommended {
-            background-color: rgba(220, 39, 67, 0.85); /* Rojo translúcido */
+            background-color: rgba(220, 39, 67, 0.85);
             color: #ffffff;
         }
 
         .card-badge.top-seller {
-            background-color: rgba(240, 148, 51, 0.85); /* Naranja/Oro translúcido */
+            background-color: rgba(240, 148, 51, 0.85);
             color: #ffffff;
         }
 
@@ -497,7 +508,7 @@
             opacity: 1;
         }
 
-        /* MEJORA: ZOOM SUAVE EN LA IMAGEN AL HACER HOVER */
+        /* ZOOM SUAVE EN LA IMAGEN AL HACER HOVER */
         .product-card:hover .product-image {
             transform: scale(1.08);
         }
@@ -517,12 +528,12 @@
             gap: 1rem;
         }
 
-        /* MEJORA: CRITERIO UNIFICADO, FUERTE Y DESTACADO PARA LOS TÍTULOS */
+        /* CRITERIO UNIFICADO, FUERTE Y DESTACADO PARA LOS TÍTULOS */
         .product-title {
             font-size: 1.1rem;
             font-weight: 700;
             letter-spacing: 0.03em;
-            text-transform: uppercase; /* Todo unificado a mayúsculas */
+            text-transform: uppercase;
             color: var(--text-main);
             line-height: 1.3;
         }
@@ -562,7 +573,7 @@
             box-shadow: 0 4px 15px rgba(220, 39, 67, 0.15);
         }
 
-        /* MEJORA: EFECTO FLOTANTE DEL BOTÓN EN EL HOVER DE TARJETA */
+        /* EFECTO FLOTANTE DEL BOTÓN EN EL HOVER DE TARJETA */
         .product-card:hover .btn-order {
             transform: scale(1.01);
             box-shadow: 0 8px 25px rgba(220, 39, 67, 0.4);
@@ -769,10 +780,12 @@
 
             <!-- TARJETA 1 -->
             <div class="product-card" data-category="ropa">
-                <!-- BADGE EN TARJETA 1 -->
                 <div class="card-badge recommended">Recomendado</div>
                 <div class="product-image-wrapper">
-                    <img src="e17894e0-0aa1-4ce3-9ae8-143f2ab26071.jpg" alt="Conjunto Deportivo Gris Under Armour" class="product-image">
+                    <!-- ENLACE EN LA IMAGEN -->
+                    <a href="https://scarfacestock.com/" target="_blank" class="product-image-link">
+                        <img src="e17894e0-0aa1-4ce3-9ae8-143f2ab26071.jpg" alt="Conjunto Deportivo Gris Under Armour" class="product-image">
+                    </a>
                 </div>
                 <div class="product-info">
                     <div class="product-meta">
@@ -791,10 +804,12 @@
 
             <!-- TARJETA 2 -->
             <div class="product-card" data-category="ropa">
-                <!-- BADGE EN TARJETA 2 -->
                 <div class="card-badge top-seller">Top Ventas</div>
                 <div class="product-image-wrapper">
-                    <img src="imgi_10_small (3).jpg" alt="Camiseta Streetwear" class="product-image">
+                    <!-- ENLACE EN LA IMAGEN -->
+                    <a href="https://drive.google.com/drive/folders/175ggtbfXf8xxQ-JaHozwUBvxhzPs6Mv6" target="_blank" class="product-image-link">
+                        <img src="imgi_10_small (3).jpg" alt="Camiseta Streetwear" class="product-image">
+                    </a>
                 </div>
                 <div class="product-info">
                     <div class="product-meta">
@@ -814,7 +829,10 @@
             <!-- TARJETA 3 -->
             <div class="product-card" data-category="ropa">
                 <div class="product-image-wrapper">
-                    <img src="ropa1.jpeg" alt="Camiseta Vintage" class="product-image">
+                    <!-- ENLACE EN LA IMAGEN -->
+                    <a href="https://18588679886.x.yupoo.com/albums" target="_blank" class="product-image-link">
+                        <img src="ropa1.jpeg" alt="Camiseta Vintage" class="product-image">
+                    </a>
                 </div>
                 <div class="product-info">
                     <div class="product-meta">
@@ -834,7 +852,10 @@
             <!-- TARJETA 4 -->
             <div class="product-card" data-category="zapatillas">
                 <div class="product-image-wrapper">
-                    <img src="zapas1.2.jpeg" alt="Catálogo 1 Zapatillas" class="product-image">
+                    <!-- ENLACE EN LA IMAGEN -->
+                    <a href="https://lifeng1066.x.yupoo.com/albums" target="_blank" class="product-image-link">
+                        <img src="zapas1.2.jpeg" alt="Catálogo 1 Zapatillas" class="product-image">
+                    </a>
                 </div>
                 <div class="product-info">
                     <div class="product-meta">
@@ -854,7 +875,10 @@
             <!-- TARJETA 5 -->
             <div class="product-card" data-category="zapatillas">
                 <div class="product-image-wrapper">
-                    <img src="zapas2.jpeg" alt="Catálogo 2 Zapatillas" class="product-image">
+                    <!-- ENLACE EN LA IMAGEN -->
+                    <a href="https://nulixieye.x.yupoo.com/categories/3085242" target="_blank" class="product-image-link">
+                        <img src="zapas2.jpeg" alt="Catálogo 2 Zapatillas" class="product-image">
+                    </a>
                 </div>
                 <div class="product-info">
                     <div class="product-meta">
@@ -874,7 +898,10 @@
             <!-- TARJETA 6 -->
             <div class="product-card" data-category="accesorios">
                 <div class="product-image-wrapper">
-                    <img src="riñoneras1.jpeg" alt="Bolsas riñoneras..." class="product-image">
+                    <!-- ENLACE EN LA IMAGEN -->
+                    <a href="https://xinfangxiangpj.x.yupoo.com/albums" target="_blank" class="product-image-link">
+                        <img src="riñoneras1.jpeg" alt="Bolsas riñoneras..." class="product-image">
+                    </a>
                 </div>
                 <div class="product-info">
                     <div class="product-meta">
@@ -894,7 +921,10 @@
             <!-- TARJETA 7 -->
             <div class="product-card" data-category="accesorios">
                 <div class="product-image-wrapper">
-                    <img src="riñoneras2.jpg" alt="Bolsas riñoneras 2" class="product-image">
+                    <!-- ENLACE EN LA IMAGEN -->
+                    <a href="https://bags.qiqiyg.com/defaulten.html" target="_blank" class="product-image-link">
+                        <img src="riñoneras2.jpg" alt="Bolsas riñoneras 2" class="product-image">
+                    </a>
                 </div>
                 <div class="product-info">
                     <div class="product-meta">
@@ -914,7 +944,10 @@
             <!-- TARJETA 8 -->
             <div class="product-card" data-category="futbol">
                 <div class="product-image-wrapper">
-                    <img src="conjuntos cortos.jpeg" alt="Conjuntos Fútbol" class="product-image">
+                    <!-- ENLACE EN LA IMAGEN -->
+                    <a href="https://huang456852.x.yupoo.com/collections/2887577" target="_blank" class="product-image-link">
+                        <img src="conjuntos cortos.jpeg" alt="Conjuntos Fútbol" class="product-image">
+                    </a>
                 </div>
                 <div class="product-info">
                     <div class="product-meta">
