@@ -22,7 +22,7 @@
             /* Degradado oficial de Instagram para el botón */
             --instagram-gradient: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
             --font-main: 'Space Grotesk', sans-serif;
-            --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+            --transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
             
             /* VARIABLE DEL LOGO ACTUALIZADA CON TU ARCHIVO EXACTO */
             --logo-src: url('logoweb.jpeg');
@@ -354,7 +354,7 @@
         }
 
         /* ==========================================================================
-           5. SECCIÓN DE PRODUCTOS (GRID)
+           5. SECCIÓN DE PRODUCTOS (GRID Y HOVER PREMIUM)
            ========================================================================== */
         .catalog-container {
             max-width: 1200px;
@@ -391,17 +391,20 @@
             overflow: hidden;
             display: flex;
             flex-direction: column;
-            border: 1px solid rgba(255, 255, 255, 0.02);
-            transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s ease, opacity 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.03);
+            transition: var(--transition);
+            position: relative;
         }
 
         .product-card.hidden {
             display: none !important;
         }
 
+        /* MEJORA: EFECTO HOVER DE LA TARJETA COMPLETA */
         .product-card:hover {
-            transform: translateY(-8px);
-            border-color: rgba(255, 255, 255, 0.1);
+            transform: translateY(-10px);
+            border-color: rgba(255, 255, 255, 0.2);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.7), 0 0 15px rgba(255, 255, 255, 0.03);
         }
 
         .product-image-wrapper {
@@ -424,6 +427,7 @@
             animation: none;
         }
 
+        /* LOGO INTERNO DE LA IMAGEN */
         .product-image-wrapper::after {
             content: '';
             position: absolute;
@@ -438,8 +442,8 @@
             background-color: rgba(11, 11, 11, 0.5);
             backdrop-filter: blur(4px);
             border-radius: 4px;
-            opacity: 0.7;
-            z-index: 2;
+            opacity: 0.6;
+            z-index: 3;
             pointer-events: none;
             border: 1px solid rgba(255,255,255,0.05);
             transition: var(--transition);
@@ -450,6 +454,34 @@
             transform: scale(1.05);
         }
 
+        /* NUEVA MEJORA: DISEÑO DE LOS NUEVOS BADGES COMERCIALES */
+        .card-badge {
+            position: absolute;
+            top: 12px;
+            left: 12px;
+            z-index: 3;
+            font-size: 0.7rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            padding: 0.35rem 0.75rem;
+            border-radius: 4px;
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+        }
+        
+        .card-badge.recommended {
+            background-color: rgba(220, 39, 67, 0.85); /* Rojo translúcido */
+            color: #ffffff;
+        }
+
+        .card-badge.top-seller {
+            background-color: rgba(240, 148, 51, 0.85); /* Naranja/Oro translúcido */
+            color: #ffffff;
+        }
+
         .product-image {
             position: absolute;
             top: 0;
@@ -457,7 +489,7 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
-            transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.3s ease;
+            transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.3s ease;
             opacity: 0;
         }
 
@@ -465,8 +497,9 @@
             opacity: 1;
         }
 
+        /* MEJORA: ZOOM SUAVE EN LA IMAGEN AL HACER HOVER */
         .product-card:hover .product-image {
-            transform: scale(1.05);
+            transform: scale(1.08);
         }
 
         .product-info {
@@ -484,11 +517,14 @@
             gap: 1rem;
         }
 
+        /* MEJORA: CRITERIO UNIFICADO, FUERTE Y DESTACADO PARA LOS TÍTULOS */
         .product-title {
-            font-size: 1.15rem;
-            font-weight: 500;
-            letter-spacing: -0.01em;
+            font-size: 1.1rem;
+            font-weight: 700;
+            letter-spacing: 0.03em;
+            text-transform: uppercase; /* Todo unificado a mayúsculas */
             color: var(--text-main);
+            line-height: 1.3;
         }
 
         .product-title-link {
@@ -497,7 +533,6 @@
         
         .product-title-link:hover {
             color: var(--text-muted);
-            text-decoration: underline;
         }
 
         .product-price {
@@ -527,10 +562,14 @@
             box-shadow: 0 4px 15px rgba(220, 39, 67, 0.15);
         }
 
+        /* MEJORA: EFECTO FLOTANTE DEL BOTÓN EN EL HOVER DE TARJETA */
+        .product-card:hover .btn-order {
+            transform: scale(1.01);
+            box-shadow: 0 8px 25px rgba(220, 39, 67, 0.4);
+        }
+
         .btn-order:hover {
-            transform: scale(1.02);
-            box-shadow: 0 6px 20px rgba(220, 39, 67, 0.3);
-            opacity: 0.95;
+            opacity: 0.9;
         }
 
         .btn-order svg {
@@ -669,7 +708,7 @@
     <section class="hero">
         <span class="hero-badge">Catálogo Privado de Importación</span>
         <h1 class="hero-title">La mejor ropa urbana <span>al mejor precio</span></h1>
-        <p class="hero-subtitle">Navega por las colecciones exclusives. Selecciona tus modelos favoritos y escríbenos directamente por mensaje privado a Instagram para gestionar tu pedido.</p>
+        <p class="hero-subtitle">Navega por las colecciones exclusivas. Selecciona tus modelos favoritos y escríbenos directamente por mensaje privado a Instagram para gestionar tu pedido.</p>
     </section>
 
     <section class="info-section">
@@ -728,14 +767,17 @@
         
         <div class="products-grid">
 
+            <!-- TARJETA 1 -->
             <div class="product-card" data-category="ropa">
+                <!-- BADGE EN TARJETA 1 -->
+                <div class="card-badge recommended">Recomendado</div>
                 <div class="product-image-wrapper">
                     <img src="e17894e0-0aa1-4ce3-9ae8-143f2ab26071.jpg" alt="Conjunto Deportivo Gris Under Armour" class="product-image">
                 </div>
                 <div class="product-info">
                     <div class="product-meta">
                         <h3 class="product-title">
-                            <a href="https://scarfacestock.com/" target="_blank" class="product-title-link">Catálogo Productos 24h</a>
+                            <a href="https://scarfacestock.com/" target="_blank" class="product-title-link">Catálogo Productos 24H</a>
                         </h3>
                     </div>
                     <a href="https://www.instagram.com/f10wears?igsh=bDhqejF2amNrajJo" target="_blank" class="btn-order">
@@ -747,14 +789,17 @@
                 </div>
             </div>
 
+            <!-- TARJETA 2 -->
             <div class="product-card" data-category="ropa">
+                <!-- BADGE EN TARJETA 2 -->
+                <div class="card-badge top-seller">Top Ventas</div>
                 <div class="product-image-wrapper">
                     <img src="imgi_10_small (3).jpg" alt="Camiseta Streetwear" class="product-image">
                 </div>
                 <div class="product-info">
                     <div class="product-meta">
                         <h3 class="product-title">
-                            <a href="https://drive.google.com/drive/folders/175ggtbfXf8xxQ-JaHozwUBvxhzPs6Mv6" target="_blank" class="product-title-link">NUEVO catálogo</a>
+                            <a href="https://drive.google.com/drive/folders/175ggtbfXf8xxQ-JaHozwUBvxhzPs6Mv6" target="_blank" class="product-title-link">Nuevo Catálogo Variado</a>
                         </h3>
                     </div>
                     <a href="https://www.instagram.com/f10wears?igsh=bDhqejF2amNrajJo" target="_blank" class="btn-order">
@@ -766,6 +811,7 @@
                 </div>
             </div>
 
+            <!-- TARJETA 3 -->
             <div class="product-card" data-category="ropa">
                 <div class="product-image-wrapper">
                     <img src="ropa1.jpeg" alt="Camiseta Vintage" class="product-image">
@@ -773,7 +819,7 @@
                 <div class="product-info">
                     <div class="product-meta">
                         <h3 class="product-title">
-                            <a href="https://18588679886.x.yupoo.com/albums" target="_blank" class="product-title-link">CATÁLOGO 1 ROPA</a>
+                            <a href="https://18588679886.x.yupoo.com/albums" target="_blank" class="product-title-link">Catálogo 1: Ropa Streetwear</a>
                         </h3>
                     </div>
                     <a href="https://www.instagram.com/f10wears?igsh=bDhqejF2amNrajJo" target="_blank" class="btn-order">
@@ -785,6 +831,7 @@
                 </div>
             </div>
 
+            <!-- TARJETA 4 -->
             <div class="product-card" data-category="zapatillas">
                 <div class="product-image-wrapper">
                     <img src="zapas1.2.jpeg" alt="Catálogo 1 Zapatillas" class="product-image">
@@ -792,7 +839,7 @@
                 <div class="product-info">
                     <div class="product-meta">
                         <h3 class="product-title">
-                            <a href="https://lifeng1066.x.yupoo.com/albums" target="_blank" class="product-title-link">catálogo 1 zapatillas</a>
+                            <a href="https://lifeng1066.x.yupoo.com/albums" target="_blank" class="product-title-link">Catálogo 1: Zapatillas Sneaker</a>
                         </h3>
                     </div>
                     <a href="https://www.instagram.com/f10wears?igsh=bDhqejF2amNrajJo" target="_blank" class="btn-order">
@@ -804,6 +851,7 @@
                 </div>
             </div>
 
+            <!-- TARJETA 5 -->
             <div class="product-card" data-category="zapatillas">
                 <div class="product-image-wrapper">
                     <img src="zapas2.jpeg" alt="Catálogo 2 Zapatillas" class="product-image">
@@ -811,7 +859,7 @@
                 <div class="product-info">
                     <div class="product-meta">
                         <h3 class="product-title">
-                            <a href="https://nulixieye.x.yupoo.com/categories/3085242" target="_blank" class="product-title-link">catálogo 2 zapatillas</a>
+                            <a href="https://nulixieye.x.yupoo.com/categories/3085242" target="_blank" class="product-title-link">Catálogo 2: Zapatillas Premium</a>
                         </h3>
                     </div>
                     <a href="https://www.instagram.com/f10wears?igsh=bDhqejF2amNrajJo" target="_blank" class="btn-order">
@@ -823,6 +871,7 @@
                 </div>
             </div>
 
+            <!-- TARJETA 6 -->
             <div class="product-card" data-category="accesorios">
                 <div class="product-image-wrapper">
                     <img src="riñoneras1.jpeg" alt="Bolsas riñoneras..." class="product-image">
@@ -830,7 +879,7 @@
                 <div class="product-info">
                     <div class="product-meta">
                         <h3 class="product-title">
-                            <a href="https://xinfangxiangpj.x.yupoo.com/albums" target="_blank" class="product-title-link">bolsas riñoneras... (contraseña 888888)</a>
+                            <a href="https://xinfangxiangpj.x.yupoo.com/albums" target="_blank" class="product-title-link">Catálogo 1: Bolsas y Riñoneras (Pass: 888888)</a>
                         </h3>
                     </div>
                     <a href="https://www.instagram.com/f10wears?igsh=bDhqejF2amNrajJo" target="_blank" class="btn-order">
@@ -842,6 +891,7 @@
                 </div>
             </div>
 
+            <!-- TARJETA 7 -->
             <div class="product-card" data-category="accesorios">
                 <div class="product-image-wrapper">
                     <img src="riñoneras2.jpg" alt="Bolsas riñoneras 2" class="product-image">
@@ -849,7 +899,7 @@
                 <div class="product-info">
                     <div class="product-meta">
                         <h3 class="product-title">
-                            <a href="https://bags.qiqiyg.com/defaulten.html" target="_blank" class="product-title-link">bolsas riñoneras 2</a>
+                            <a href="https://bags.qiqiyg.com/defaulten.html" target="_blank" class="product-title-link">Catálogo 2: Bolsas y Accesorios</a>
                         </h3>
                     </div>
                     <a href="https://www.instagram.com/f10wears?igsh=bDhqejF2amNrajJo" target="_blank" class="btn-order">
@@ -861,6 +911,7 @@
                 </div>
             </div>
 
+            <!-- TARJETA 8 -->
             <div class="product-card" data-category="futbol">
                 <div class="product-image-wrapper">
                     <img src="conjuntos cortos.jpeg" alt="Conjuntos Fútbol" class="product-image">
@@ -868,7 +919,7 @@
                 <div class="product-info">
                     <div class="product-meta">
                         <h3 class="product-title">
-                            <a href="https://huang456852.x.yupoo.com/collections/2887577" target="_blank" class="product-title-link">conjuntos fútbol</a>
+                            <a href="https://huang456852.x.yupoo.com/collections/2887577" target="_blank" class="product-title-link">Catálogo: Conjuntos de Fútbol</a>
                         </h3>
                     </div>
                     <a href="https://www.instagram.com/f10wears?igsh=bDhqejF2amNrajJo" target="_blank" class="btn-order">
@@ -888,7 +939,7 @@
         <div class="footer-brand">F10WEARS</div>
         <p class="footer-text">Catálogo privado streetwear de importación. Consulta disponibilidad y gestiona tus pedidos enviando un DM a nuestro perfil oficial de Instagram.</p>
         <div class="footer-copy">&copy; 2026 F10Wears. Todos los derechos reservados.</div>
-    </footer-->
+    </footer>
 
     <script>
         document.addEventListener("DOMContentLoaded", () => {
