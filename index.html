@@ -25,7 +25,7 @@
             --font-main: 'Space Grotesk', sans-serif;
             --transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
             
-            /* VARIABLE DEL LOGO ACTUALIZADA CON TU ARCHIVO EXACTO */
+            /* VARIABLE DEL LOGO EXACTO */
             --logo-src: url('logoweb.jpeg');
         }
 
@@ -69,7 +69,7 @@
         }
 
         /* ==========================================================================
-           BOTÓN FLOTANTE DE TIKTOK (NUEVO)
+           BOTÓN FLOTANTE DE TIKTOK
            ========================================================================== */
         .tiktok-floating {
             position: fixed;
@@ -94,7 +94,7 @@
 
         .tiktok-floating:hover {
             transform: translateY(-4px) scale(1.02);
-            border-color: #ff0050; /* Color distintivo del neón de TikTok */
+            border-color: #ff0050;
             box-shadow: 0 12px 28px rgba(255, 0, 80, 0.15), 0 0 10px rgba(0, 242, 234, 0.1);
         }
 
@@ -358,6 +358,125 @@
         .custom-text p {
             font-size: 0.9rem;
             color: var(--text-muted);
+        }
+
+        /* ==========================================================================
+           NUEVO: SECCIÓN DE FOTOS REALES / PEDIDOS (DRIVE)
+           ========================================================================== */
+        .orders-gallery-section {
+            max-width: 1200px;
+            margin: 1.5rem auto 0 auto;
+            padding: 0 2rem;
+        }
+
+        .gallery-card {
+            background: #111111;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 16px;
+            overflow: hidden;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            align-items: center;
+            transition: var(--transition);
+        }
+
+        .gallery-card:hover {
+            border-color: rgba(255, 255, 255, 0.15);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.6);
+        }
+
+        .gallery-info {
+            padding: 3rem;
+        }
+
+        .gallery-badge {
+            background: rgba(255, 255, 255, 0.08);
+            color: #ffffff;
+            font-size: 0.7rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            padding: 0.35rem 0.75rem;
+            border-radius: 4px;
+            display: inline-block;
+            margin-bottom: 1.25rem;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .gallery-info h3 {
+            font-size: 1.75rem;
+            text-transform: uppercase;
+            letter-spacing: -0.02em;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+
+        .gallery-info p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            margin-bottom: 2rem;
+            max-width: 420px;
+        }
+
+        .btn-gallery {
+            background: linear-gradient(45deg, #1f1f1f, #2c2c2c);
+            color: #ffffff;
+            padding: 0.9rem 1.75rem;
+            border-radius: 8px;
+            font-weight: 700;
+            font-size: 0.95rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.6rem;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: var(--transition);
+        }
+
+        .gallery-card:hover .btn-gallery {
+            background: #ffffff;
+            color: #000000;
+            border-color: #ffffff;
+            transform: translateY(-2px);
+        }
+
+        .btn-gallery svg {
+            width: 18px;
+            height: 18px;
+            fill: currentColor;
+        }
+
+        .gallery-image-wrapper {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            min-height: 320px;
+            overflow: hidden;
+        }
+
+        .gallery-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            position: absolute;
+            top: 0;
+            left: 0;
+            transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .gallery-card:hover .gallery-img {
+            transform: scale(1.05);
+        }
+
+        /* Overlay oscuro sobre la foto para mejor integración */
+        .gallery-image-wrapper::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, #111111 0%, transparent 30%);
+            pointer-events: none;
         }
 
         /* ==========================================================================
@@ -717,6 +836,25 @@
                 padding: 1.25rem;
             }
 
+            /* Ajustes responsive de la nueva galería */
+            .gallery-card {
+                grid-template-columns: 1fr;
+            }
+
+            .gallery-info {
+                padding: 2rem 1.5rem;
+                order: 2; /* Texto abajo en móvil */
+            }
+
+            .gallery-image-wrapper {
+                min-height: 240px;
+                order: 1; /* Foto arriba en móvil */
+            }
+
+            .gallery-image-wrapper::after {
+                background: linear-gradient(0deg, #111111 0%, transparent 40%);
+            }
+
             .filter-container {
                 margin: 2rem auto 1.5rem auto;
                 padding: 0 1rem;
@@ -736,7 +874,7 @@
                 flex-direction: column;
                 align-items: flex-start;
                 padding: 1.5rem;
-                gap: 1.25rem;
+                gap: 125rem;
             }
 
             .btn-info {
@@ -761,7 +899,6 @@
                 font-size: 1rem;
             }
 
-            /* Ajuste fino en móviles para que el botón flotante no estorbe */
             .tiktok-floating {
                 bottom: 16px;
                 left: 16px;
@@ -773,7 +910,7 @@
 </head>
 <body>
 
-    <!-- NATIVO: BOTÓN FLOTANTE DE TIKTOK -->
+    <!-- BOTÓN FLOTANTE DE TIKTOK -->
     <a href="https://www.tiktok.com/@f10wears_" target="_blank" class="tiktok-floating" aria-label="Síguenos en TikTok">
         <svg viewBox="0 0 24 24">
             <path d="M12.525.01c1.306-.022 2.615-.011 3.921-.01.157 1.78.823 3.475 2.016 4.757.92.936 2.1 1.616 3.393 1.905.006 1.345.004 2.689.002 4.033-.984-.04-1.956-.308-2.83-.758-.93-.497-1.724-1.222-2.311-2.096-.024 3.197.02 6.394-.029 9.59-.112 1.666-.694 3.303-1.733 4.605-1.164 1.5-2.9 2.515-4.78 2.82-1.93.354-3.993-.05-5.632-1.123-1.682-1.07-2.85-2.87-3.176-4.838-.4-2.203.226-4.57 1.69-6.223 1.365-1.583 3.424-2.49 5.513-2.463.003 1.397-.005 2.793-.002 4.19-.884-.047-1.796.177-2.518.706-.826.582-1.348 1.562-1.378 2.573-.047 1.134.463 2.274 1.353 2.946.855.677 2.013.882 3.064.53 1.053-.332 1.916-1.196 2.257-2.247.243-.728.221-1.522.222-2.283.003-4.723-.002-9.445.004-14.168z"/>
@@ -841,6 +978,27 @@
                 </div>
             </div>
         </div>
+    </section>
+
+    <!-- NUEVO APARTADO: FOTOS DE PEDIDOS REALES -->
+    <section class="orders-gallery-section reveal">
+        <a href="https://drive.google.com/drive/folders/1KKlgNXVKkLAxgrjT9mJF7bgYtjneZb-Y?usp=sharing" target="_blank" class="gallery-card">
+            <div class="gallery-info">
+                <span class="gallery-badge">Calidad Garantizada</span>
+                <h3>Fotos Reales de Nuestros Pedidos</h3>
+                <p>Echa un vistazo a la calidad de los productos que reciben nuestros clientes. Fotos reales de stock, costuras, zapatillas y acabados sin filtros.</p>
+                <div class="btn-gallery">
+                    <svg viewBox="0 0 24 24">
+                        <path d="M19 19H5V5h7V3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2v-7h-2v7zM14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7z"/>
+                    </svg>
+                    Abrir Álbum Completo
+                </div>
+            </div>
+            <div class="gallery-image-wrapper">
+                <!-- Imagen temporal. Puedes sustituir 'riñoneras1.jpeg' por cualquier otra imagen de tu repo en GitHub -->
+                <img src="riñoneras1.jpeg" alt="Fotos reales de pedidos F10WEARS" class="gallery-img">
+            </div>
+        </a>
     </section>
 
     <div class="filter-container reveal">
@@ -1043,7 +1201,6 @@
         <p class="footer-text">Catálogo privado streetwear de importación. Consulta disponibilidad y gestiona tus pedidos enviando un DM a nuestro perfil oficial de Instagram.</p>
         
         <div class="footer-links">
-            <!-- TIKTOK ENLACE EN FOOTER -->
             <a href="https://www.tiktok.com/@f10wears_" target="_blank" class="footer-link" style="color: #ffffff; font-weight: 700;">TikTok Oficial</a>
             <span style="color: rgba(255,255,255,0.1)">|</span>
             <a href="#" class="footer-link">Aviso Legal</a>
