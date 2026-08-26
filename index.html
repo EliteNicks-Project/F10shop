@@ -19,8 +19,9 @@
             --accent-color: #ffffff;
             --text-main: #ffffff;
             --text-muted: #888888;
-            /* Degradados oficiales para redes */
+            /* Degradados oficiales para redes y acentos */
             --instagram-gradient: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+            --star-gold: #ffb703;
             --tiktok-color: #000000;
             --font-main: 'Space Grotesk', sans-serif;
             --transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
@@ -467,7 +468,6 @@
             transform: scale(1.05);
         }
 
-        /* Overlay oscuro sobre la foto para mejor integración */
         .gallery-image-wrapper::after {
             content: '';
             position: absolute;
@@ -527,7 +527,7 @@
         .catalog-container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 0 2rem 8rem 2rem;
+            padding: 0 2rem 5rem 2rem;
         }
 
         .section-title {
@@ -751,6 +751,270 @@
         }
 
         /* ==========================================================================
+           NUEVO: SECCIÓN DE RESEÑAS Y VALORACIONES DE CLIENTES
+           ========================================================================== */
+        .reviews-section {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem 2rem 8rem 2rem;
+        }
+
+        .reviews-header {
+            text-align: center;
+            max-width: 650px;
+            margin: 0 auto 3rem auto;
+        }
+
+        .reviews-badge {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            color: var(--star-gold);
+            margin-bottom: 0.75rem;
+            border: 1px solid rgba(255, 183, 3, 0.25);
+            padding: 0.3rem 0.8rem;
+            border-radius: 4px;
+            display: inline-block;
+            background: rgba(255, 183, 3, 0.05);
+        }
+
+        .reviews-title {
+            font-size: 2.25rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: -0.02em;
+            margin-bottom: 0.75rem;
+        }
+
+        .reviews-subtitle {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        .reviews-container {
+            display: grid;
+            grid-template-columns: 1fr 1.3fr;
+            gap: 2.5rem;
+            align-items: flex-start;
+        }
+
+        /* Formulario de Reseñas */
+        .review-form-card {
+            background-color: var(--surface-color);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            border-radius: 16px;
+            padding: 2rem;
+            background: linear-gradient(145deg, #141414 0%, #1a1a1a 100%);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        }
+
+        .review-form-card h3 {
+            font-size: 1.3rem;
+            text-transform: uppercase;
+            letter-spacing: -0.01em;
+            margin-bottom: 0.5rem;
+        }
+
+        .review-form-card p {
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.25rem;
+        }
+
+        .form-label {
+            display: block;
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--text-main);
+            margin-bottom: 0.5rem;
+        }
+
+        .star-rating-select {
+            display: flex;
+            gap: 0.5rem;
+            margin-bottom: 0.25rem;
+        }
+
+        .star-rating-select .star-icon {
+            width: 28px;
+            height: 28px;
+            cursor: pointer;
+            fill: #333333;
+            transition: fill 0.2s ease, transform 0.2s ease;
+        }
+
+        .star-rating-select .star-icon.active,
+        .star-rating-select .star-icon.hover {
+            fill: var(--star-gold);
+        }
+
+        .star-rating-select .star-icon:hover {
+            transform: scale(1.15);
+        }
+
+        .form-input, .form-textarea {
+            width: 100%;
+            background-color: #0d0d0d;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            padding: 0.85rem 1rem;
+            color: #ffffff;
+            font-family: var(--font-main);
+            font-size: 0.9rem;
+            transition: var(--transition);
+            outline: none;
+        }
+
+        .form-input:focus, .form-textarea:focus {
+            border-color: rgba(255, 255, 255, 0.4);
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.05);
+        }
+
+        .form-textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        .btn-submit-review {
+            width: 100%;
+            background-color: var(--accent-color);
+            color: #000000;
+            border: none;
+            padding: 0.9rem;
+            border-radius: 8px;
+            font-family: var(--font-main);
+            font-size: 0.95rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.03em;
+            cursor: pointer;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+
+        .btn-submit-review:hover {
+            background-color: #e0e0e0;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(255, 255, 255, 0.15);
+        }
+
+        .btn-submit-review svg {
+            width: 16px;
+            height: 16px;
+            fill: currentColor;
+        }
+
+        /* Lista de Reseñas */
+        .reviews-list-container {
+            display: flex;
+            flex-direction: column;
+            gap: 1.25rem;
+            max-height: 520px;
+            overflow-y: auto;
+            padding-right: 0.5rem;
+        }
+
+        /* Custom scrollbar para la lista de reseñas */
+        .reviews-list-container::-webkit-scrollbar {
+            width: 5px;
+        }
+
+        .reviews-list-container::-webkit-scrollbar-track {
+            background: rgba(255, 255, 255, 0.02);
+            border-radius: 10px;
+        }
+
+        .reviews-list-container::-webkit-scrollbar-thumb {
+            background: rgba(255, 255, 255, 0.15);
+            border-radius: 10px;
+        }
+
+        .review-card-item {
+            background-color: var(--surface-color);
+            border: 1px solid rgba(255, 255, 255, 0.04);
+            border-radius: 12px;
+            padding: 1.5rem;
+            transition: var(--transition);
+            animation: fadeInReview 0.5s ease-out;
+        }
+
+        @keyframes fadeInReview {
+            from { opacity: 0; transform: translateY(15px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .review-card-item:hover {
+            border-color: rgba(255, 255, 255, 0.12);
+            transform: translateY(-3px);
+        }
+
+        .review-item-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 0.75rem;
+        }
+
+        .review-author {
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+        }
+
+        .review-author-avatar {
+            width: 32px;
+            height: 32px;
+            background: linear-gradient(45deg, #222222, #333333);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 0.8rem;
+            color: #ffffff;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .review-author-name {
+            font-weight: 700;
+            font-size: 0.95rem;
+            color: var(--text-main);
+        }
+
+        .review-stars {
+            display: flex;
+            gap: 2px;
+        }
+
+        .review-stars svg {
+            width: 14px;
+            height: 14px;
+            fill: var(--star-gold);
+        }
+
+        .review-comment {
+            font-size: 0.9rem;
+            color: #d1d1d1;
+            line-height: 1.4;
+        }
+
+        .review-date {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            margin-top: 0.75rem;
+            display: block;
+        }
+
+        /* ==========================================================================
            6. FOOTER (PIE DE PÁGINA)
            ========================================================================== */
         .footer {
@@ -814,7 +1078,7 @@
 
         /* ==========================================================================
            7. RESPONSIVE DESIGN (MEDIA QUERIES)
-           ========================================================================= */
+           ========================================================================== */
         @media (max-width: 768px) {
             .hero {
                 padding: 9rem 1.5rem 3rem 1.5rem;
@@ -836,7 +1100,6 @@
                 padding: 1.25rem;
             }
 
-            /* Ajustes responsive de la galería */
             .gallery-card {
                 grid-template-columns: 1fr;
             }
@@ -883,7 +1146,7 @@
             }
 
             .catalog-container {
-                padding: 0 1.5rem 4rem 1.5rem;
+                padding: 0 1.5rem 3rem 1.5rem;
             }
 
             .products-grid {
@@ -904,6 +1167,24 @@
                 left: 16px;
                 padding: 0.6rem 1rem;
                 font-size: 0.75rem;
+            }
+
+            /* Responsive de Reseñas */
+            .reviews-section {
+                padding: 1rem 1.5rem 6rem 1.5rem;
+            }
+
+            .reviews-title {
+                font-size: 1.75rem;
+            }
+
+            .reviews-container {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .review-form-card {
+                padding: 1.5rem;
             }
         }
     </style>
@@ -995,7 +1276,6 @@
                 </div>
             </div>
             <div class="gallery-image-wrapper">
-                <!-- Foto de pedidos asignada correctamente -->
                 <img src="f421646f-69c8-48e2-9bc5-ed748b2ac108.jpeg" alt="Fotos reales de pedidos F10WEARS" class="gallery-img">
             </div>
         </a>
@@ -1195,6 +1475,56 @@
         </div>
     </main>
 
+    <!-- NUEVA SECCIÓN DE RESEÑAS -->
+    <section class="reviews-section reveal">
+        <div class="reviews-header">
+            <span class="reviews-badge">Comunidad & Confianza</span>
+            <h2 class="reviews-title">Opiniones de Clientes</h2>
+            <p class="reviews-subtitle">¿Ya has recibido tu pedido? Déjanos tu valoración con estrellas y apoya a la comunidad de F10WEARS.</p>
+        </div>
+
+        <div class="reviews-container">
+            <!-- Formulario para dejar reseña -->
+            <div class="review-form-card">
+                <h3>Escribe tu Reseña</h3>
+                <p>Tu opinión nos ayuda a seguir trayendo el mejor catálogo.</p>
+                
+                <form id="reviewForm">
+                    <div class="form-group">
+                        <label class="form-label">Puntuación</label>
+                        <div class="star-rating-select" id="starRatingSelect">
+                            <svg class="star-icon active" data-rating="1" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                            <svg class="star-icon active" data-rating="2" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                            <svg class="star-icon active" data-rating="3" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                            <svg class="star-icon active" data-rating="4" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                            <svg class="star-icon active" data-rating="5" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label" for="authorName">Tu Nombre o Instagram</label>
+                        <input type="text" id="authorName" class="form-input" placeholder="Ej. @carlos_st / Marcos" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label" for="reviewMessage">Mensaje de Apoyo / Opinión</label>
+                        <textarea id="reviewMessage" class="form-textarea" placeholder="¿Qué tal la calidad, talla o el trato por DM?" required></textarea>
+                    </div>
+
+                    <button type="submit" class="btn-submit-review">
+                        <svg viewBox="0 0 24 24"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>
+                        Publicar Reseña
+                    </button>
+                </form>
+            </div>
+
+            <!-- Listado dinámico de reseñas -->
+            <div class="reviews-list-container" id="reviewsList">
+                <!-- Se cargan por JavaScript (iniciales + almacenadas) -->
+            </div>
+        </div>
+    </section>
+
     <footer class="footer">
         <div class="footer-logo" aria-hidden="true"></div>
         <div class="footer-brand">F10WEARS</div>
@@ -1274,6 +1604,139 @@
 
             revealElements();
             window.addEventListener("scroll", revealElements);
+
+            /* ==========================================================================
+               4. LÓGICA DEL SISTEMA DE RESEÑAS
+               ========================================================================== */
+            let currentRating = 5;
+            const starIcons = document.querySelectorAll(".star-rating-select .star-icon");
+            const reviewForm = document.getElementById("reviewForm");
+            const reviewsList = document.getElementById("reviewsList");
+
+            // Reseñas iniciales por defecto
+            const defaultReviews = [
+                {
+                    author: "@alvaro_gr7",
+                    rating: 5,
+                    comment: "Me llegó el conjunto de Under Armour en menos de 10 días. La calidad de las costuras y los logos es brutal, 100% recomendados.",
+                    date: "Hace 2 días"
+                },
+                {
+                    author: "David M.",
+                    rating: 5,
+                    comment: "Pedí unas zapatillas preguntando por DM un modelo que no salía en catálogo y me lo encontraron rapidísimo. Trato de 10.",
+                    date: "Hace 5 días"
+                },
+                {
+                    author: "@javistreet_",
+                    rating: 5,
+                    comment: "Calidad idéntica a las fotos del Drive. El paquete vino bien protegido y la talla perfecta. Repetiré seguro en el próximo drop.",
+                    date: "Hace 1 semana"
+                }
+            ];
+
+            // Cargar reseñas guardadas en localStorage o usar las predeterminadas
+            let savedReviews = JSON.parse(localStorage.getItem("f10_user_reviews"));
+            if (!savedReviews || savedReviews.length === 0) {
+                savedReviews = defaultReviews;
+                localStorage.setItem("f10_user_reviews", JSON.stringify(savedReviews));
+            }
+
+            function renderStarsSVG(rating) {
+                let starsHTML = '';
+                for (let i = 0; i < 5; i++) {
+                    if (i < rating) {
+                        starsHTML += `<svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>`;
+                    } else {
+                        starsHTML += `<svg style="fill: #333333;" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>`;
+                    }
+                }
+                return starsHTML;
+            }
+
+            function renderReviews() {
+                reviewsList.innerHTML = '';
+                savedReviews.forEach(rev => {
+                    const firstLetter = rev.author.replace('@', '').charAt(0).toUpperCase() || 'U';
+                    const card = document.createElement("div");
+                    card.className = "review-card-item";
+                    card.innerHTML = `
+                        <div class="review-item-header">
+                            <div class="review-author">
+                                <div class="review-author-avatar">${firstLetter}</div>
+                                <span class="review-author-name">${rev.author}</span>
+                            </div>
+                            <div class="review-stars">
+                                ${renderStarsSVG(rev.rating)}
+                            </div>
+                        </div>
+                        <p class="review-comment">"${rev.comment}"</p>
+                        <span class="review-date">${rev.date}</span>
+                    `;
+                    reviewsList.appendChild(card);
+                });
+            }
+
+            renderReviews();
+
+            // Manejador del selector de estrellas interactivo
+            starIcons.forEach(star => {
+                star.addEventListener("mouseenter", () => {
+                    const ratingVal = parseInt(star.getAttribute("data-rating"));
+                    starIcons.forEach(s => {
+                        const sVal = parseInt(s.getAttribute("data-rating"));
+                        if (sVal <= ratingVal) {
+                            s.classList.add("hover");
+                        } else {
+                            s.classList.remove("hover");
+                        }
+                    });
+                });
+
+                star.addEventListener("mouseleave", () => {
+                    starIcons.forEach(s => s.classList.remove("hover"));
+                });
+
+                star.addEventListener("click", () => {
+                    currentRating = parseInt(star.getAttribute("data-rating"));
+                    starIcons.forEach(s => {
+                        const sVal = parseInt(s.getAttribute("data-rating"));
+                        if (sVal <= currentRating) {
+                            s.classList.add("active");
+                        } else {
+                            s.classList.remove("active");
+                        }
+                    });
+                });
+            });
+
+            // Manejador de envío del formulario
+            reviewForm.addEventListener("submit", (e) => {
+                e.preventDefault();
+                const nameInput = document.getElementById("authorName");
+                const messageInput = document.getElementById("reviewMessage");
+
+                const newReview = {
+                    author: nameInput.value.trim(),
+                    rating: currentRating,
+                    comment: messageInput.value.trim(),
+                    date: "Reciente"
+                };
+
+                savedReviews.unshift(newReview);
+                localStorage.setItem("f10_user_reviews", JSON.stringify(savedReviews));
+
+                renderReviews();
+
+                // Limpiar formulario y resetear estrellas a 5
+                nameInput.value = "";
+                messageInput.value = "";
+                currentRating = 5;
+                starIcons.forEach(s => s.classList.add("active"));
+
+                // Desplazamiento suave al nuevo elemento
+                reviewsList.scrollTop = 0;
+            });
 
         });
     </script>
