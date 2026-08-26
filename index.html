@@ -708,13 +708,6 @@
             color: var(--text-muted);
         }
 
-        .product-price {
-            font-size: 1.15rem;
-            font-weight: 700;
-            color: var(--text-main);
-            white-space: nowrap;
-        }
-
         .btn-order {
             margin-top: auto;
             width: 100%;
@@ -751,7 +744,7 @@
         }
 
         /* ==========================================================================
-           NUEVO: SECCIÓN DE RESEÑAS Y VALORACIONES DE CLIENTES
+           SECCIÓN DE RESEÑAS Y VALORACIONES DE CLIENTES
            ========================================================================== */
         .reviews-section {
             max-width: 1200px;
@@ -798,7 +791,6 @@
             align-items: flex-start;
         }
 
-        /* Formulario de Reseñas */
         .review-form-card {
             background-color: var(--surface-color);
             border: 1px solid rgba(255, 255, 255, 0.06);
@@ -913,7 +905,6 @@
             fill: currentColor;
         }
 
-        /* Lista de Reseñas */
         .reviews-list-container {
             display: flex;
             flex-direction: column;
@@ -923,7 +914,6 @@
             padding-right: 0.5rem;
         }
 
-        /* Custom scrollbar para la lista de reseñas */
         .reviews-list-container::-webkit-scrollbar {
             width: 5px;
         }
@@ -1158,7 +1148,7 @@
                 padding: 1rem;
             }
             
-            .product-title, .product-price {
+            .product-title {
                 font-size: 1rem;
             }
 
@@ -1169,7 +1159,6 @@
                 font-size: 0.75rem;
             }
 
-            /* Responsive de Reseñas */
             .reviews-section {
                 padding: 1rem 1.5rem 6rem 1.5rem;
             }
@@ -1281,6 +1270,7 @@
         </a>
     </section>
 
+    <!-- FILTROS DE CATEGORÍAS -->
     <div class="filter-container reveal">
         <button class="filter-btn active" data-filter="all">Todos</button>
         <button class="filter-btn" data-filter="ropa">Ropa</button>
@@ -1289,12 +1279,13 @@
         <button class="filter-btn" data-filter="accesorios">Accesorios</button>
     </div>
 
+    <!-- CUADRÍCULA DE CATÁLOGOS ORDENADA -->
     <main class="catalog-container">
         <h2 class="section-title reveal">Catálogos Disponibles</h2>
         
         <div class="products-grid">
 
-            <!-- TARJETA 1 -->
+            <!-- 1. ROPA - RECOMENDADO -->
             <div class="product-card reveal" data-category="ropa">
                 <div class="card-badge recommended">Recomendado</div>
                 <div class="product-image-wrapper">
@@ -1317,7 +1308,7 @@
                 </div>
             </div>
 
-            <!-- TARJETA 2 -->
+            <!-- 2. ROPA - TOP VENTAS -->
             <div class="product-card reveal" data-category="ropa">
                 <div class="card-badge top-seller">Top Ventas</div>
                 <div class="product-image-wrapper">
@@ -1340,29 +1331,7 @@
                 </div>
             </div>
 
-            <!-- TARJETA 3 -->
-            <div class="product-card reveal" data-category="ropa">
-                <div class="product-image-wrapper">
-                    <a href="https://18588679886.x.yupoo.com/albums" target="_blank" class="product-image-link">
-                        <img src="ropa1.jpeg" alt="Camiseta Vintage" class="product-image">
-                    </a>
-                </div>
-                <div class="product-info">
-                    <div class="product-meta">
-                        <h3 class="product-title">
-                            <a href="https://18588679886.x.yupoo.com/albums" target="_blank" class="product-title-link">Catálogo 1: Ropa Streetwear</a>
-                        </h3>
-                    </div>
-                    <a href="https://www.instagram.com/f10wears?igsh=bDhqejF2amNrajJo" target="_blank" class="btn-order">
-                        <svg viewBox="0 0 24 24">
-                            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.051.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/>
-                        </svg>
-                        Pedir por Instagram
-                    </a>
-                </div>
-            </div>
-
-            <!-- TARJETA 4 -->
+            <!-- 3. ZAPATILLAS 1 -->
             <div class="product-card reveal" data-category="zapatillas">
                 <div class="product-image-wrapper">
                     <a href="https://lifeng1066.x.yupoo.com/albums" target="_blank" class="product-image-link">
@@ -1384,7 +1353,7 @@
                 </div>
             </div>
 
-            <!-- TARJETA 5 -->
+            <!-- 4. ZAPATILLAS 2 -->
             <div class="product-card reveal" data-category="zapatillas">
                 <div class="product-image-wrapper">
                     <a href="https://nulixieye.x.yupoo.com/categories/3085242" target="_blank" class="product-image-link">
@@ -1406,51 +1375,7 @@
                 </div>
             </div>
 
-            <!-- TARJETA 6 -->
-            <div class="product-card reveal" data-category="accesorios">
-                <div class="product-image-wrapper">
-                    <a href="https://xinfangxiangpj.x.yupoo.com/albums" target="_blank" class="product-image-link">
-                        <img src="riñoneras1.jpeg" alt="Bolsas riñoneras..." class="product-image">
-                    </a>
-                </div>
-                <div class="product-info">
-                    <div class="product-meta">
-                        <h3 class="product-title">
-                            <a href="https://xinfangxiangpj.x.yupoo.com/albums" target="_blank" class="product-title-link">Catálogo 1: Bolsas y Riñoneras (Pass: 888888)</a>
-                        </h3>
-                    </div>
-                    <a href="https://www.instagram.com/f10wears?igsh=bDhqejF2amNrajJo" target="_blank" class="btn-order">
-                        <svg viewBox="0 0 24 24">
-                            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.051.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/>
-                        </svg>
-                        Pedir por Instagram
-                    </a>
-                </div>
-            </div>
-
-            <!-- TARJETA 7 -->
-            <div class="product-card reveal" data-category="accesorios">
-                <div class="product-image-wrapper">
-                    <a href="https://bags.qiqiyg.com/defaulten.html" target="_blank" class="product-image-link">
-                        <img src="riñoneras2.jpg" alt="Bolsas riñoneras 2" class="product-image">
-                    </a>
-                </div>
-                <div class="product-info">
-                    <div class="product-meta">
-                        <h3 class="product-title">
-                            <a href="https://bags.qiqiyg.com/defaulten.html" target="_blank" class="product-title-link">Catálogo 2: Bolsas y Accesorios</a>
-                        </h3>
-                    </div>
-                    <a href="https://www.instagram.com/f10wears?igsh=bDhqejF2amNrajJo" target="_blank" class="btn-order">
-                        <svg viewBox="0 0 24 24">
-                            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.051.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/>
-                        </svg>
-                        Pedir por Instagram
-                    </a>
-                </div>
-            </div>
-
-            <!-- TARJETA 8 -->
+            <!-- 5. FÚTBOL -->
             <div class="product-card reveal" data-category="futbol">
                 <div class="product-image-wrapper">
                     <a href="https://huang456852.x.yupoo.com/collections/2887577" target="_blank" class="product-image-link">
@@ -1472,10 +1397,54 @@
                 </div>
             </div>
 
+            <!-- 6. ACCESORIOS 1 -->
+            <div class="product-card reveal" data-category="accesorios">
+                <div class="product-image-wrapper">
+                    <a href="https://xinfangxiangpj.x.yupoo.com/albums" target="_blank" class="product-image-link">
+                        <img src="riñoneras1.jpeg" alt="Bolsas riñoneras..." class="product-image">
+                    </a>
+                </div>
+                <div class="product-info">
+                    <div class="product-meta">
+                        <h3 class="product-title">
+                            <a href="https://xinfangxiangpj.x.yupoo.com/albums" target="_blank" class="product-title-link">Catálogo 1: Bolsas y Riñoneras (Pass: 888888)</a>
+                        </h3>
+                    </div>
+                    <a href="https://www.instagram.com/f10wears?igsh=bDhqejF2amNrajJo" target="_blank" class="btn-order">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.051.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/>
+                        </svg>
+                        Pedir por Instagram
+                    </a>
+                </div>
+            </div>
+
+            <!-- 7. ACCESORIOS 2 -->
+            <div class="product-card reveal" data-category="accesorios">
+                <div class="product-image-wrapper">
+                    <a href="https://bags.qiqiyg.com/defaulten.html" target="_blank" class="product-image-link">
+                        <img src="riñoneras2.jpg" alt="Bolsas riñoneras 2" class="product-image">
+                    </a>
+                </div>
+                <div class="product-info">
+                    <div class="product-meta">
+                        <h3 class="product-title">
+                            <a href="https://bags.qiqiyg.com/defaulten.html" target="_blank" class="product-title-link">Catálogo 2: Bolsas y Accesorios</a>
+                        </h3>
+                    </div>
+                    <a href="https://www.instagram.com/f10wears?igsh=bDhqejF2amNrajJo" target="_blank" class="btn-order">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.051.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/>
+                        </svg>
+                        Pedir por Instagram
+                    </a>
+                </div>
+            </div>
+
         </div>
     </main>
 
-    <!-- NUEVA SECCIÓN DE RESEÑAS -->
+    <!-- SECCIÓN DE RESEÑAS -->
     <section class="reviews-section reveal">
         <div class="reviews-header">
             <span class="reviews-badge">Comunidad & Confianza</span>
@@ -1484,7 +1453,6 @@
         </div>
 
         <div class="reviews-container">
-            <!-- Formulario para dejar reseña -->
             <div class="review-form-card">
                 <h3>Escribe tu Reseña</h3>
                 <p>Tu opinión nos ayuda a seguir trayendo el mejor catálogo.</p>
@@ -1518,13 +1486,13 @@
                 </form>
             </div>
 
-            <!-- Listado dinámico de reseñas -->
             <div class="reviews-list-container" id="reviewsList">
-                <!-- Se cargan por JavaScript (iniciales + almacenadas) -->
+                <!-- Se cargan por JavaScript -->
             </div>
         </div>
     </section>
 
+    <!-- FOOTER -->
     <footer class="footer">
         <div class="footer-logo" aria-hidden="true"></div>
         <div class="footer-brand">F10WEARS</div>
@@ -1544,7 +1512,7 @@
     <script>
         document.addEventListener("DOMContentLoaded", () => {
             
-            /* 1. LÓGICA DEL SKELETON LOADER */
+            /* 1. SKELETON LOADER */
             const images = document.querySelectorAll(".product-image");
             
             images.forEach(img => {
@@ -1563,7 +1531,7 @@
                 img.classList.add("visible");
             }
 
-            /* 2. LÓGICA DE FILTROS DINÁMICOS */
+            /* 2. FILTROS DINÁMICOS */
             const filterButtons = document.querySelectorAll(".filter-btn");
             const productCards = document.querySelectorAll(".product-card");
 
@@ -1587,7 +1555,7 @@
                 });
             });
 
-            /* 3. SCRIPT DE SCROLL REVEAL */
+            /* 3. SCROLL REVEAL */
             const revealElements = () => {
                 const elements = document.querySelectorAll(".reveal");
                 const windowHeight = window.innerHeight;
@@ -1605,15 +1573,12 @@
             revealElements();
             window.addEventListener("scroll", revealElements);
 
-            /* ==========================================================================
-               4. LÓGICA DEL SISTEMA DE RESEÑAS
-               ========================================================================== */
+            /* 4. SISTEMA DE RESEÑAS */
             let currentRating = 5;
             const starIcons = document.querySelectorAll(".star-rating-select .star-icon");
             const reviewForm = document.getElementById("reviewForm");
             const reviewsList = document.getElementById("reviewsList");
 
-            // Reseñas iniciales por defecto
             const defaultReviews = [
                 {
                     author: "@alvaro_gr7",
@@ -1635,7 +1600,6 @@
                 }
             ];
 
-            // Cargar reseñas guardadas en localStorage o usar las predeterminadas
             let savedReviews = JSON.parse(localStorage.getItem("f10_user_reviews"));
             if (!savedReviews || savedReviews.length === 0) {
                 savedReviews = defaultReviews;
@@ -1679,7 +1643,6 @@
 
             renderReviews();
 
-            // Manejador del selector de estrellas interactivo
             starIcons.forEach(star => {
                 star.addEventListener("mouseenter", () => {
                     const ratingVal = parseInt(star.getAttribute("data-rating"));
@@ -1710,7 +1673,6 @@
                 });
             });
 
-            // Manejador de envío del formulario
             reviewForm.addEventListener("submit", (e) => {
                 e.preventDefault();
                 const nameInput = document.getElementById("authorName");
@@ -1728,13 +1690,11 @@
 
                 renderReviews();
 
-                // Limpiar formulario y resetear estrellas a 5
                 nameInput.value = "";
                 messageInput.value = "";
                 currentRating = 5;
                 starIcons.forEach(s => s.classList.add("active"));
 
-                // Desplazamiento suave al nuevo elemento
                 reviewsList.scrollTop = 0;
             });
 
